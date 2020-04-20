@@ -1,0 +1,81 @@
+{% extends "layout.html.j2" %}
+{% block content %}
+  <div class="content-section">
+    <form action="" method="post" novalidate="novalidate">
+      {{ form.hidden_tag() }}
+      <fieldset class="form-group">
+        <div class="border-bottom mb-4">
+          <legend>
+            Contact/Report a Problem
+          </legend>
+          <p>Please fill out the form below to report a problem, provide feedback, or have any other questions or comments. Alternatively, you can email <a href="mailto:neelu.rsa@gmail.com">neelu.rsa@gmail.com</a>. Please send an email to <a href="mailto:neelu.rsa@gmail.com">neelu.rsa@gmail.com</a> if you do not hear back within 24 hours of submitting this form.</p>
+        </div>
+
+        <div class="form-group">
+          {{ form.name.label(class="form-control-label") }}
+          {% if form.name.errors %}
+            {{ form.name(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.name.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.name(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+        <div class="form-group">
+          {{ form.email.label(class="form-control-label") }}
+          {% if form.email.errors %}
+            {{ form.email(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.email.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.email(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+        <div class="form-group">
+          {{ form.subject.label(class="form-control-label") }}
+          {% if form.subject.errors %}
+            {{ form.subject(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.subject.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.subject(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+        <div class="form-group">
+          {{ form.message.label(class="form-control-label") }}
+          {% if form.message.errors %}
+            {{ form.message(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.message.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.message(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+        <div class="g-recaptcha" data-sitekey="{{ captcha_sitekey }}"></div>
+        {% if captcha_error %}
+          <div class="invalid-feedback">
+            <span>{{ captcha_error }}</span>
+          </div>
+        {% endif %}
+      </fieldset>
+      <div class="form-group">
+        {{ form.submit(class="btn btn-outline-info") }}
+      </div>
+    </form>
+  </div>
+{% endblock content %}
+{% block styles %}
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+{% endblock styles %}

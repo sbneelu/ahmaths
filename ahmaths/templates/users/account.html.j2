@@ -1,0 +1,46 @@
+{% extends "layout.html.j2" %}
+{% block content %}
+  <div class="content-section">
+    <h1>Account</h1>
+    <p>If you would like to delete your account please use the <a href="{{ url_for('main.contact') }}">Contact/Report a Problem</a> page.</p>
+    <form action="" method="post" novalidate="novalidate">
+      {{ form.hidden_tag() }}
+      <fieldset class="form-group">
+        <div class="border-bottom mb-4">
+
+        </div>
+
+
+        <div class="form-group">
+          <h3>{{ form.email.label(class="form-control-label") }}</h3>
+          <small>Note that email addresses are case-sensitive.</small>
+          {% if form.email.errors %}
+            {{ form.email(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.email.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.email(class="form-control form-control-lg") }}
+          {% endif %}
+          {{ form.submit(class="btn btn-outline-info mt-1") }}
+        </div>
+      </fieldset>
+
+    </form>
+
+    <div>
+      <h3>Password</h3>
+      <a href="{{ url_for('users.update_password') }}" class="btn btn-outline-info">Change Password</a>
+    </div>
+    <br>
+    <div>
+      <h3>Delete Progress (Practise)</h3>
+      <a href="{{ url_for('users.confirm_delete_progress', topic_id='all') }}" class="btn btn-outline-danger mt-1">Delete <b>All</b> Progress</a><br>
+      {% for topic in topics %}
+        <a href="{{ url_for('users.confirm_delete_progress', topic_id=topic.topic_id) }}" class="btn btn-outline-info mt-1">Delete Progress in <b>{{ topic.topic_name }}</b></a><br>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock content %}

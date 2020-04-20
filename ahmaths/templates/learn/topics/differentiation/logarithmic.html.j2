@@ -1,0 +1,22 @@
+{% extends 'learn/subtopic.html.j2' %}
+{% block explanation %}
+  <p>Logarithmic differentiation is a technique used to differentiate functions when the variable being differentiated with respect to is an exponent. Logarithmic differentiation is based on the <a href="{{ url_for('learn.subtopic', subtopic_id='product_rule', topic_id='differentiation') }}">product rule</a> and linked to <a href="{{ url_for('learn.subtopic', subtopic_id='implicit', topic_id='differentiation') }}">implicit differentiation</a> so please see that subtopic first if you unsure about it. Also make sure you refamiliarise yourself with the laws of logarithms from higher, particularly this one:</p>
+  <p class="math">$$
+    \log _a b^n = n \log _a b \\
+    \therefore \ln b^n = n \ln b
+  $$</p>
+  <p>In logarithmic differentiation, the natural logarithm is taken of both sides of the equation, and that is then differentiated. If you are unsure about what the natural logarithm is or how to differentiate it then please see the <a href="{{ url_for('learn.subtopic', subtopic_id='new_functions', topic_id='differentiation') }}">New Functions</a> subtopic.</p>
+  <p>For example, logarithmic differentiation can be used to differentiate \(2^x\).</p>
+  <p class="math">$$
+    \begin{eqnarray}
+      \text{Let } y &amp;=&amp; 2^x \\
+      \ln y &amp;=&amp; \ln 2^x \\
+      \ln y &amp;=&amp; x \ln 2 \\
+      \\
+      \text{Differentiating both sides with respect to x: } \\
+      \frac{1}{y} \cdot \frac{dy}{dx} &amp;=&amp; \ln 2 \text{ (since } \ln 2 \text{ is just a constant}) \\
+      \frac{dy}{dx} &amp;=&amp; y \ln 2 \\
+      \frac{dy}{dx} &amp;=&amp; \underline{\underline{2^x \ln 2}} \text{ (since } y = 2^x)
+    \end{eqnarray}
+  $$</p>
+{% endblock explanation %}

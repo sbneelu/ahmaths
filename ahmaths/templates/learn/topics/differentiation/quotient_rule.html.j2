@@ -1,0 +1,34 @@
+{% extends 'learn/subtopic.html.j2' %}
+{% block explanation %}
+  <p>The quotient rule can be used to differentiate a function which is the quotient of constituent 2 functions. It is as follows:</p>
+  <p class="math">$$
+
+
+    \text{Let the two composite functions be } u \text{ and } v, \text{ and their derivatives be } u' \text{ and } v' \text{ respectively}. \\
+    \text{Let } y = \frac{u}{v}. \\
+    \\
+    \text{The quotient rule states the following:} \\
+    \\
+    \frac{dy}{dx} = \frac{vu' - uv'}{v^2}
+
+  $$</p>
+
+  <p>For example, the function \( \frac{\sin x}{x^2} \) can be differentiated using the quotient rule.</p>
+  <p class="math">$$
+    \begin{eqnarray}
+      y &amp;=&amp; \frac{\sin x}{x^2} \\
+      \\
+      u &amp;=&amp; \sin x \\
+      v &amp;=&amp; x^2 \\
+      \\
+      u' &amp;=&amp; \cos x \\
+      v' &amp;=&amp; 2x \\
+      \\
+      \frac{dy}{dx} &amp;=&amp; \frac{vu' - uv'}{v^2} \\
+      &amp;=&amp; \frac{x^2 \cos x - 2x \sin x}{x^4} \\
+      &amp;=&amp; \underline{\underline{\frac{\cos x}{x^2} - \frac{2 \sin x}{x^3}}}
+    \end{eqnarray}
+
+    $$</p>
+
+{% endblock explanation %}

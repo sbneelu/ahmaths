@@ -1,0 +1,26 @@
+{% extends "layout.html.j2" %}
+
+{% block content %}
+  <div class="alert alert-danger">Learn is incomplete and is not yet ready for use. Most links will lead to an Internal Server Error. It should be complete by April 2020. Please use the other sections on the website until then.</div>
+  <div class="alert alert-info">If the maths symbols on this page (if there are any) do not render as expected then please consider upgrading to a more modern browser and/or ensure that JavaScript is enabled.</div>
+  <h2>{{ topic.topic_name }}</h2>
+  {% block explanation %}{% endblock explanation %}
+  {% if topic.subtopics %}
+    <p>Click on a subtopic to view detailed course notes and worked examples.</p>
+    <h3>Subtopics</h3>
+    <ul>
+      {% for subtopic in topic.subtopics %}
+        <li><a href="{{ url_for('learn.subtopic', subtopic_id=subtopic.subtopic_id, topic_id=topic.topic_id) }}">{{ subtopic.subtopic_name }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  <div class="text-center">
+    <a class="btn btn-outline-info" href="{{ url_for('practise.topic', topic_id=topic.topic_id) }}">Practise {{ topic.topic_name }}</a>
+  </div>
+
+  <br>
+  <br>
+{% endblock content %}
+{% block scripts %}
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+{% endblock scripts %}

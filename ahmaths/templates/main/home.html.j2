@@ -1,0 +1,94 @@
+{% extends 'layout.html.j2' %}
+{% block content %}
+  <a style="width: 100%;" class="btn btn-outline-info mb-2" href="{{ url_for('static', filename='formulae-list.pdf') }}" target="_blank">Formulae List</a>
+  <div style="margin: auto;" class="row p-2 visible-md visible-lg thumbnail paper-selection-element">
+    <div class="col-md-4 p-2">
+      <div class="p-2">
+        <h2 class="text-center">Learn</h2>
+        <i>Learn is incomplete and is not yet ready for use. Most links will lead to an Internal Server Error. It should be complete by April 2020. Please use the other sections on the website until then.</i>
+        <br>
+        <br>
+        <ul class="text-left">
+          <li>Course notes and content explanations</li>
+          <li>Worked examples</li>
+          <li>Divided into topics and subtopics</li>
+          <li>Linked practice questions</li>
+        </ul>
+        <div class="text-center">
+          <a class="btn btn-outline-info" href="{{ url_for('learn.main') }}">Open Learn</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 p-2" style="border-left: 1px solid #2B7EB8; border-right: 1px solid #2B7EB8;">
+      <div class="p-2">
+        <h2 class="text-center">Practise</h2>
+        <ul class="text-left">
+          <li>Past paper questions divided into topics</li>
+          <li>Marking instructions, DLBMaths solution video and linked course notes easily accessible from question</li>
+          <li>Progress tracking for each question and by topic</li>
+        </ul>
+        <div class="text-center">
+          <a class="btn btn-outline-info" href="{{ url_for('practise.main') }}">Open Practise</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 p-2">
+      <div class="p-2">
+        <h2 class="text-center">Revise</h2>
+        <ul class="text-left">
+          <li>SQA specimen and past papers with marking instructions</li>
+        </ul>
+        <div class="text-center">
+          <a class="btn btn-outline-info" href="{{ url_for('revise.main') }}">Open Revise</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="visible-xs visible-sm thumbnail paper-selection-element p-2">
+    <ul class="nav nav-tabs">
+      <li role="presentation"><a data-toggle="tab" href="#learn-sm">Learn</a></li>
+      <li role="presentation" class="active"><a data-toggle="tab" href="#practise-sm">Practise</a></li>
+      <li role="presentation"><a data-toggle="tab" href="#revise-sm">Revise</a></li>
+    </ul>
+    <div class="tab-content">
+      <div id="learn-sm" class="tab-pane fade">
+        <h2 class="text-center">Learn</h2>
+        <i>Learn is incomplete and is not yet ready for use. Most links will lead to an Internal Server Error. It should be complete by April 2020. Please use the other sections on the website until then.</i>
+        <br>
+        <br>
+        <ul class="text-left">
+          <li>Course notes and content explanations</li>
+          <li>Worked examples</li>
+          <li>Divided into topics and subtopics</li>
+          <li>Linked practice questions</li>
+        </ul>
+        <div class="text-center">
+          <a class="btn btn-outline-info" href="{{ url_for('learn.main') }}">Open Learn</a>
+        </div>
+      </div>
+      <div id="practise-sm" class="tab-pane fade in active">
+        <h2 class="text-center">Practise</h2>
+        <ul class="text-left">
+          <li>Past paper questions divided into topics</li>
+          <li>Marking instructions, DLBMaths solution video and linked course notes easily accessible from question</li>
+          <li>Progress tracking for each question and by topic</li>
+        </ul>
+        <div class="text-center">
+          <a class="btn btn-outline-info" href="{{ url_for('practise.main') }}">Open Practise</a>
+        </div>
+      </div>
+      <div id="revise-sm" class="tab-pane fade">
+        <h2 class="text-center">Revise</h2>
+        <ul class="text-left">
+          <li>SQA specimen and past papers with marking instructions</li>
+        </ul>
+        <div class="text-center">
+          <a class="btn btn-outline-info" href="{{ url_for('revise.main') }}">Open Revise</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+{% endblock content %}

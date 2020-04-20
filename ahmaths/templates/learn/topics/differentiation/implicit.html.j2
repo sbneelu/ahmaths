@@ -1,0 +1,73 @@
+{% extends 'learn/subtopic.html.j2' %}
+{% block explanation %}
+  <h3>First derivative</h3>
+  <p>In implicit differentiation, both \(x\) and \(y\) appear together in an equation and can not easily be separated. The product and chain rules can be used to find \( \frac{dy}{dx} \) by differentiating both sides of the equation with respect to \(x\). For example:</p>
+  <p class="math">$$
+    \begin{eqnarray}
+      \text{Find } \frac{dy}{dx}. \\
+      xy + 4y &amp;=&amp; 3x^2 \\
+      \\
+      \text{Using the product rule to differentiate } xy: \\
+      x \frac{dy}{dx} + y + 4 \frac{dy}{dx} &amp;=&amp; 6x \\
+      \frac{dy}{dx} (x + 4) &amp;=&amp; 6x - y \\
+      \frac{dy}{dx} &amp;=&amp; \underline{\underline{\frac{6x - y}{x + 4}}} \\
+    \end{eqnarray}
+  $$</p>
+  <p>This solution is expressed <i>implicitly</i> since both \(x\) and \(y\) appear in the derivative. You may be asked to express a derivative <i>explicitly</i>, which can be done in the following way:</p>
+  <p class="math">$$
+    \begin{eqnarray}
+      xy + 4y &amp;=&amp; 3x^2 \\
+      y(x + 4) &amp;=&amp; 3x^2 \\
+      y &amp;=&amp; \frac{3x^2}{x + 4}
+      \\
+      \frac{dy}{dx} &amp;=&amp; \frac{6x - y}{x + 4} \\
+      &amp;=&amp; \frac{6x - \frac{3x^2}{x + 4}}{x + 4} \\
+      &amp;=&amp; \frac{\frac{6x(x + 4) - 3x^2}{x + 4}}{x + 4} \\
+      &amp;=&amp; \frac{6x^2 + 24x - 3x^2}{(x + 4)^2} \\
+      &amp;=&amp; \frac{3x^2 + 24x}{(x + 4)^2} \\
+      &amp;=&amp; \underline{\underline{\frac{3x(x + 8)}{(x + 4)^2}}}
+    \end{eqnarray}
+  $$</p>
+  <h3>Second derivative</h3>
+  <p>You may also be asked to find the second derivative using implicit differentiation. Using the same example as above, this can be done in the following way:</p>
+
+  <p class="math">$$
+    \begin{eqnarray}
+      xy + 4y &amp;=&amp; 3x^2 \\
+      \frac{dy}{dx} &amp;=&amp; \frac{6x - y}{x + 4} \\
+      \\
+      \frac{d^2 y}{dx^2} &amp;=&amp; \frac{d}{dx}(\frac{dy}{dx}) \\
+      &amp;=&amp; \frac{d}{dx}(\frac{6x - y}{x + 4}) \\
+      \\
+      \text{Using the quotient rule:} \\
+      u &amp;=&amp; 6x - y \\
+      v &amp;=&amp; x + 4 \\
+      \\
+      u' &amp;=&amp; 6 - \frac{dy}{dx} \\
+      &amp;=&amp; 6 - \frac{6x - y}{x + 4} \\
+      v' &amp;=&amp; 1 \\
+      \\
+      \frac{d^2 y}{dx^2} &amp;=&amp; \frac{vu' - uv'}{v^2} \\
+      &amp;=&amp; \frac{(x + 4)(6 - \frac{6x - y}{x + 4}) - (6x - y)}{(x + 4)^2} \\
+      &amp;=&amp; \frac{6(x + 4) - (6x - y) - 6x + y}{(x + 4)^2} \\
+      &amp;=&amp; \frac{6x + 24 - 6x + y - 6x + y}{(x + 4)^2} \\
+      &amp;=&amp; \underline{\underline{\frac{-6x + 2y + 24}{(x + 4)^2}}} \\
+    \end{eqnarray}
+  $$</p>
+  <p>Like above, you may be asked to express your answer explicitly.</p>
+  <p class="math">$$
+    \begin{eqnarray}
+      xy + 4y &amp;=&amp; 3x^2 \\
+      y(x + 4) &amp;=&amp; 3x^2 \\
+      y &amp;=&amp; \frac{3x^2}{x + 4} \\
+      \\
+      \frac{d^2 y}{dx^2} &amp;=&amp; \frac{-6x + 2y + 24}{(x + 4)^2} \\
+      &amp;=&amp; \frac{-6x + 24 + 2 \frac{3x^2}{x + 4}}{(x + 4)^2} \\
+      &amp;=&amp; \frac{\frac{(x + 4)(-6x + 24) + 6x^2}{x + 4}}{(x + 4)^2} \\
+      &amp;=&amp; \frac{-6x^2 + 96 + 6x^2}{(x + 4)^3} \\
+      &amp;=&amp; \underline{\underline{\frac{96}{(x + 4)^3}}}
+
+
+    \end{eqnarray}
+  $$</p>
+{% endblock explanation %}

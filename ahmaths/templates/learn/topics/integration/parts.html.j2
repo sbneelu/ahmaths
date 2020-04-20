@@ -1,0 +1,17 @@
+{% extends 'learn/subtopic.html.j2' %}
+{% block explanation %}
+
+  <p>Integration by parts is a technique based on the <a href="{{ url_for('learn.subtopic', topic_id='differentiation', subtopic_id='product_rule') }}">product rule</a> of differentiation. It can be derived as follows:</p>
+  <p class="math">$$
+    \begin{eqnarray}
+      (uv)' &amp;=&amp; uv' + vu' \\
+      \int (uv)' &amp;=&amp; \int (uv' + vu') \\
+      uv &amp;=&amp; \int uv' + \int vu' \\
+      \int uv' &amp;=&amp; uv - \int vu'
+    \end{eqnarray}
+  $$</p>
+  <h3>Product of two functions</h3>
+  <p>In integration by parts can be used when two functions are multiplied together. One of the functions is differentiated and the other is integrated. Sometimes a certain function can not be integrated and therefore must be differentiated, and sometimes it makes more sense to integrate or differentiate one than the other, and you must use your judgement to know which function to differentiate and which to integrate.</p>
+  <p>The function which is differentiated is denoted by \(u\) and the one which is integrated is denoted by \(v'\). An example problem is as follows:</p>
+
+{% endblock explanation %}

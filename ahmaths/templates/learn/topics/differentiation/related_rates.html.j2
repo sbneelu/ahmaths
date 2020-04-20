@@ -1,0 +1,24 @@
+{% extends 'learn/subtopic.html.j2' %}
+{% block explanation %}
+  <p>Differentiation can be used to find related rates of change.</p>
+  <p>For example: The radius of a sphere is increasing at a rate of \( \frac{1}{2} \) cm per second. Find the rate of increase of the volume of the sphere when its radius is \(8\) cm. The volume of a sphere is given by the equation \( V = \frac{4}{3} \pi r^3 \).</p>
+  <p class="math">$$
+    \begin{eqnarray}
+      \frac{dr}{dt} &amp;=&amp; \frac{1}{2} \\
+      V &amp;=&amp; \frac{4}{3} \pi r^3 \\
+      \frac{dV}{dt} &amp;=&amp; ? \\
+      \\
+      \frac{dV}{dr} &amp;=&amp; 4 \pi r^2 \\
+      \\
+      \frac{dV}{dt} &amp;=&amp; \frac{dV}{dr} \cdot \frac{dr}{dt} \\
+      &amp;=&amp; 4 \pi r^2 \cdot \frac{1}{2} \\
+      &amp;=&amp; 2 \pi r^2 \\
+      \\
+      \text{When } r = 8, \\
+      \frac{dV}{dt} &amp;=&amp; 2 \pi \cdot 8^2 \\
+      &amp;=&amp; \underline{\underline{128 \pi \text{ cm} ^3 \text{ per second}}}
+    \end{eqnarray}
+  $$</p>
+
+
+{% endblock explanation %}

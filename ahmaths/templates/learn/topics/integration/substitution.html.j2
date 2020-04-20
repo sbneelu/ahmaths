@@ -1,0 +1,66 @@
+{% extends 'learn/subtopic.html.j2' %}
+{% block explanation %}
+  <p>Integration by substitution is a technique that involves substituting a variable (commonly \( u \)) for a part of a function to allow the function to be integrated.</p>
+  <h3>Indefinite Integration by Substitution</h3>
+  <p>Indefinite integration by substitution involves simply substituting a variable for a part of a function and then substituting the function back in after integration. For example:</p>
+  <p class="math">$$
+    \text{Use the substitution } u = (5x - 4) \text{ to find } \int (5x - 4)^7 dx.
+  $$</p>
+  <p>This can be solved by first differentiating the substitution and rearranging:</p>
+  <p class="math">$$
+    \begin{eqnarray}
+      u &amp;=&amp; 5x - 4 \\
+      \frac{du}{dx} &amp;=&amp; 5 \\
+      du &amp;=&amp; 5 dx \\
+      dx &amp;=&amp; \frac{1}{5} du
+    \end{eqnarray}
+  $$</p>
+  <p>We can now substitute \(u\) for \((5x - 4)\) and \(\frac{1}{5} du\) for \(dx\) and then substitute \(u = (5x - 4)\) back after integration.</p>
+  <p class="math">$$
+    \begin{eqnarray}
+      \int (5x - 4)^7 dx &amp;=&amp; \int u^7 \cdot \frac{1}{5} du \\
+      &amp;=&amp; \frac{1}{5} \int u^7 du \\
+      &amp;=&amp; \frac{1}{40} u^8 + c \\
+      &amp;=&amp; \underline{\underline{\frac{1}{40} (5x - 4)^8 + c}}
+    \end{eqnarray}
+  $$</p>
+  <h3>Definite Integration by Substitution</h3>
+  <p>Definite integration by substitution is very similar to indefinite integration by substitution. However, the limits of the substituted integral are different to those of the original one and must be computer. Also, the substitution does not need to be substituted back in after integration. For example:</p>
+  <p class="math">$$
+    \text{Use the substitution } u = (x^2 + 4) \text{ to find } \int^{2}_{1} 2xe^{x^2 + 4} dx.
+  $$</p>
+  <p>This starts off in the same way as above by first differentiating \(u\) with respect to \(x\) and rearranging.</p>
+  <p class="math">$$
+    \begin{eqnarray}
+      u &amp;=&amp; x^2 + 4 \\
+      \frac{du}{dx} &amp;=&amp; 2x \\
+      du &amp;=&amp; 2x dx \\
+      dx &amp;=&amp; \frac{1}{2x} du
+    \end{eqnarray}
+  $$</p>
+  <p>The new limits must now be computed using the substitution.</p>
+  <p class="math">$$
+    \begin{eqnarray}
+      u &amp;=&amp; x^2 + 4 \\
+      \\
+      \text{Upper Limit}\\
+      x &amp;=&amp; 2 \\
+      u &amp;=&amp; 2^2 + 4 = 8 \\
+      \\
+      \text{Lower Limit}\\
+      x &amp;=&amp; 1 \\
+      u &amp;=&amp; 1^2 + 4 = 5
+    \end{eqnarray}
+  $$</p>
+  <p>The integral can now be written in terms of the substitution and the new limits and then solved.</p>
+  <p class="math">$$
+    \begin{eqnarray}
+      \int^{2}_{1} 2xe^{x^2 + 4} dx &amp;=&amp; \int^{8}_{5} 2xe^u \cdot \frac{1}{2x} du \\
+      &amp;=&amp; \int^{8}_{5} e^u du \\
+      &amp;=&amp; [e^u]^{8}_{5} \\
+      &amp;=&amp; e^8 - e^5 \\
+      &amp;=&amp; \underline{\underline{e^5 (e^3 - 1)}}
+    \end{eqnarray}
+  $$</p>
+
+{% endblock explanation %}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61674279-8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-61674279-8');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Open+Sans:400,600">
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='navbar.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-fixes.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.min.css') }}">
+  {% block styles %}{% endblock styles %}
+  {% if title %}
+    <title>{{ title }} - AHmaths.com</title>
+  {% else %}
+    <title>AHmaths.com</title>
+  {% endif %}
+</head>
+<body>
+  <nav class="navbar navbar-blue">
+    <div class="container-fluid">
+
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span>Menu</span>
+        </button>
+        <a class="navbar-brand" href="{{ url_for('main.home') }}">AHmaths.com</a>
+      </div>
+
+
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-item nav-link" href="{{ url_for('main.home') }}">Home</a></li>
+          <li><a class="nav-item nav-link" href="{{ url_for('learn.main') }}">Learn</a></li>
+          <li><a class="nav-item nav-link" href="{{ url_for('practise.main') }}">Practise</a></li>
+          <li><a class="nav-item nav-link" href="{{ url_for('revise.main') }}">Revise</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-item nav-link" href="{{ url_for('static', filename='formulae-list.pdf') }}" target="_blank">Formulae List</a></li>
+          <li><a class="nav-item nav-link" href="{{ url_for('main.contact') }}">Contact/Report a Problem</a></li>
+          {% if current_user.is_authenticated %}
+            <li><a class="nav-item nav-link" href="{{ url_for('users.account') }}">Account</a></li>
+            <li><a class="nav-item nav-link" href="{{ url_for('users.logout') }}">Logout</a></li>
+          {% else %}
+            <li><a class="nav-item nav-link" href="{{ url_for('users.login') }}">Login</a></li>
+            <li><a class="nav-item nav-link" href="{{ url_for('users.signup') }}">Sign up</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="alert alert-warning">
+      <b>This site is currently in beta.</b> If you encounter any issues or have any feedback or feature requests please report them on the <a class="alert-link" href="{{ url_for('main.contact') }}" target="_blank">Contact/Report a Problem</a> page.
+    </div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock content %}
+  </div>
+
+  {% block lightbox %}{% endblock lightbox %}
+
+  <script src="{{ url_for('static', filename='jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='main.js') }}"></script>
+  {% block scripts %}{% endblock scripts %}
+</body>
+</html>

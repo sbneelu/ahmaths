@@ -1,0 +1,220 @@
+{% extends 'layout.html.j2' %}
+{% block styles %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='lightbox.min.css') }}">
+{% endblock styles %}
+{% block content %}
+  <div class="row text-center">
+    <a style="width: 97%;" class="btn btn-outline-info" href="{{ url_for('static', filename='formulae-list.pdf') }}" target="_blank">Formulae List</a>
+    <br>
+    <br>
+
+    <div class="col-sm-12 col-md-8">
+      {% if question.paper %}
+        <h1>SQA {{ question.paper }} Question {{ question.question_number }}</h1>
+      {% else %}
+        <h1>{{ topic.topic_name }} Question {{ question.question_number }}</h1>
+      {% endif %}
+
+      <div>
+        <p>Click to enlarge</p>
+        <a class="lightbox text-center" href="#q">
+          <img src="{{ url_for('static', filename='sqa-questions/' + question.question_id + '.png') }}" alt="SQA {{ question.paper }} Question {{ question.question_number }}">
+        </a>
+      </div>
+
+
+      {% if not show_marking %}
+        <div class="reveal-ma mt-2">
+      {% else %}
+        <div class="reveal-ma hidden mt-2">
+      {% endif %}
+        <button class="btn btn-info mt-2" onclick="$('.marking-aids').removeClass('hidden'); $('.reveal-ma').addClass('hidden');">
+          Reveal marking instructions
+          {% if question.video %}
+            and video
+          {% endif %}
+        </button>
+
+
+      </div>
+
+      {% if not show_marking %}
+        <div class="reveal-ma mt-2">
+      {% else %}
+        <div class="reveal-ma hidden mt-2">
+      {% endif %}
+        <div class="text-md content-section">
+          <h3>Previous Attempt</h3>
+          <div>
+            {% if mark %}
+              {% set mark = mark|int %}
+              {% set max_mark = question.marks %}
+              {% if mark/max_mark < 0.5 %}
+                {% set color_class = 'danger' %}
+              {% elif mark/max_mark < 1 %}
+                {% set color_class = 'warning' %}
+              {% elif mark/max_mark == 1 %}
+                {% set color_class = 'green' %}
+              {% endif %}
+              <span class="text-{{ color_class }} text-md">{{ mark }} out of {{ question.marks }} marks</span>
+            {% else %}
+              <span class="text-md">Unattempted</span>
+            {% endif %}
+          </div>
+
+        </div>
+
+      </div>
+
+
+      {% if not show_marking %}
+        <div class="row hidden marking-aids">
+      {% else %}
+        <div class="row marking-aids">
+      {% endif %}
+        <br>
+        <br>
+        <p>Scroll down to the bottom to input your marks.</p>
+        {% if question.video %}
+          <div class="col-md-6 text-center">
+            <h3 class="bold">Marking Instructions</h3>
+            <p>Click to enlarge</p>
+            <a class="lightbox" href="#mi">
+              <img src="{{ url_for('static', filename='sqa-mi/' + question.question_id + '.png') }}" alt="SQA {{ question.paper }} Question {{ question.question_number }} Marking Instructions">
+            </a>
+
+          </div>
+          <div class="col-md-6 text-center">
+            <h3 class="bold">DLBMaths Video</h3>
+            <p>Use video controls to fullscreen</p>
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="dlbmaths-video embed-responsive-item" src="https://www.youtube.com/embed/{{ question.video }}" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+          </div>
+        {% else %}
+          <div class="col-md-12 text-center">
+            <h3 class="bold">Marking Instructions</h3>
+            <a class="lightbox" href="#mi">
+              <img src="{{ url_for('static', filename='sqa-mi/' + question.question_id + '.png') }}" alt="SQA {{ question.paper }} Question {{ question.question_number }} Marking Instructions">
+            </a>
+
+          </div>
+        {% endif %}
+
+      </div>
+
+      {% if not show_marking %}
+        <div class="text-center content-section mt-4 mb-4 marking-aids text-md hidden">
+      {% else %}
+        <div class="text-center content-section mt-4 mb-4 marking-aids text-md">
+      {% endif %}
+        <h3>How many marks did you get?</h3>
+        <form action="?show_marking=mark_validation_error" method="post">
+          <div class="form-group text-left">
+            {{ form.hidden_tag() }}
+            {{ form.question }}
+            {% if form.mark.errors %}
+              {{ form.mark.label(class="form-control-label") }}
+              {{ form.mark(class="form-control form-control-lg is-invalid", autocomplete="off") }}
+              <div class="invalid-feedback">
+                {% for error in form.mark.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.mark.label(class="form-control-label") }}
+              {{ form.mark(class="form-control form-control-lg", autocomplete="off") }}
+            {% endif %}
+          </div>
+          <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+          </div>
+
+
+        </form>
+
+        <hr>
+
+        <div class="text-md">
+          <h3>Previous Attempt</h3>
+          <div>
+            {% if mark %}
+              {% set mark = mark|int %}
+              {% set max_mark = question.marks %}
+              {% if mark/max_mark < 0.5 %}
+                {% set color_class = 'danger' %}
+              {% elif mark/max_mark < 1 %}
+                {% set color_class = 'warning' %}
+              {% elif mark/max_mark == 1 %}
+                {% set color_class = 'green' %}
+              {% endif %}
+              <span class="text-{{ color_class }}">{{ mark }} out of {{ question.marks }} marks</span>
+            {% else %}
+              <span>Unattempted</span>
+            {% endif %}
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+
+
+
+    </div>
+    <div class="col-sm-12 col-md-3 col-md-offset-1 mt-2">
+      <div class="content-section">
+        <h3>Content Explanation Pages</h3>
+        <small>See the pages below for topic explanations and examples.</small>
+        <br>
+        <br>
+        <i>This section is associated with the Learn section and currently incomplete and may appear empty, and any links that do appear in this section may be broken and lead to an Internal Server Error. This should be fixed by April 2020. Please use the rest of the website until then as everything else (including the other features of Practise) should work fine.</i>
+        <br>
+        <br>
+        <ul class="text-left">
+          {% for topic in topics %}
+            <li>
+              <a href="{{ url_for('learn.topic', topic_id=topic.topic_id) }}" target="_blank">{{ topic.topic_name }}</a>
+              {% if topic.topic_id in subtopics %}
+                <ul>
+                  {% for subtopic in subtopics[topic.topic_id] %}
+                    <li><a href="{{ url_for('learn.subtopic', topic_id=topic.topic_id, subtopic_id=subtopic.subtopic_id) }}" target="_blank">{{ subtopic.subtopic_name }}</a></li>
+                  {% endfor %}
+                </ul>
+
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+        <!-- <hr>
+        <h3>Further Reading</h3>
+        <small>See resources below for linked content that isn't necessarily in the Advanced Higher course.</small>
+        <ul class="text-left">
+
+        </ul> -->
+      </div>
+    </div>
+
+  </div>
+
+{% endblock content %}
+
+{% block lightbox %}
+  <div class="lightbox-target" id="q">
+     <img src="{{ url_for('static', filename='sqa-questions/' + question.question_id + '.png') }}" alt="SQA {{ question.paper }} Question {{ question.question_number }}">
+     <a class="lightbox-close" href="#"></a>
+  </div>
+  <div class="lightbox-target" id="mi">
+     <img src="{{ url_for('static', filename='sqa-mi/' + question.question_id + '.png') }}" alt="SQA {{ question.paper }} Question {{ question.question_number }} Marking Instructions">
+     <a class="lightbox-close" href="#"></a>
+  </div>
+{% endblock lightbox %}
+
+<!-- {% block scripts %}
+<script>
+
+</script>
+{% endblock scripts %} -->

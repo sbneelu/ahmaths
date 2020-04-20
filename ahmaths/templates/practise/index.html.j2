@@ -1,0 +1,33 @@
+{% extends 'layout.html.j2' %}
+{% block content %}
+  <div class="text-center">
+    <h1>Practise</h1>
+    <p>Select a topic below to practise questions on the topic.</p>
+    <br>
+  </div>
+  <div class="row selection text-center">
+    {% for topic in topics %}
+      {% set progress_percentage = progress[topic.topic_id] %}
+      {% if progress_percentage < 35 %}
+        {% set color_class = 'danger' %}
+      {% elif progress_percentage < 70 %}
+        {% set color_class = 'warning' %}
+      {% elif progress_percentage < 100 %}
+        {% set color_class = 'success' %}
+      {% elif progress_percentage == 100 %}
+        {% set color_class = 'full' %}
+      {% endif %}
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <a class="thumbnail selection-element" href="{{ url_for('practise.topic', topic_id=topic.topic_id) }}">
+          <h2>{{ topic.topic_name }}</h2>
+          <div class="text-center mb-1">{{ progress_percentage }}% Complete</div>
+          <div class="progress">
+            <div class="progress-bar progress-bar-{{ color_class }}" role="progressbar" aria-valuenow="{{ progress_percentage }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ progress_percentage }}%">
+              <span class="sr-only">{{ progress_percentage }}% Complete</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock content %}
