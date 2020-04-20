@@ -1,6 +1,5 @@
 {% extends "layout.html.j2" %}
 {% block content %}
-  <div class="alert alert-danger">Learn is incomplete and is not yet ready for use. Most links will lead to an Internal Server Error. It should be complete by April 2020. Please use the other sections on the website until then.</div>
   <div class="alert alert-info">If the maths symbols on this page (if there are any) do not render as expected then please consider upgrading to a more modern browser and/or ensure that JavaScript is enabled.</div>
   <h2>{{ subtopic.subtopic_name }}</h2>
   <p>Part of <a href="{{ url_for('learn.topic', topic_id=topic.topic_id) }}">{{ topic.topic_name }}</a></p>
