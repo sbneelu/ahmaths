@@ -11,20 +11,20 @@ def setup_db(db, app):
 
         db.session.add(User(email='neelu.rsa@gmail.com', password='$2b$12$Q9OiQeBop4waQDri5.YwMeOus2yzYKmTJ.es0zT5707aQBG.T5mDS'))
 
-        db.session.add(Topic(topic_id='partial_fractions', topic_name='Partial Fractions'))
-        db.session.add(Topic(topic_id='binomial_theorem', topic_name='Binomial Theorem'))
-        db.session.add(Topic(topic_id='differentiation', topic_name='Differentiation'))
-        db.session.add(Topic(topic_id='integration', topic_name='Integration'))
+        db.session.add(Topic(topic_id='partial_fractions', topic_name='Partial Fractions')) #
+        db.session.add(Topic(topic_id='binomial_theorem', topic_name='Binomial Theorem')) #
+        db.session.add(Topic(topic_id='differentiation', topic_name='Differentiation')) #
+        db.session.add(Topic(topic_id='integration', topic_name='Integration')) #
         db.session.add(Topic(topic_id='differential_equations', topic_name='Differential Equations'))
         db.session.add(Topic(topic_id='functions_graphs', topic_name='Functions &amp; Graphs'))
-        db.session.add(Topic(topic_id='systems_of_equations', topic_name='Systems of Equations'))
+        db.session.add(Topic(topic_id='systems_of_equations', topic_name='Systems of Equations')) #
         db.session.add(Topic(topic_id='complex_numbers', topic_name='Complex Numbers'))
         db.session.add(Topic(topic_id='sequences_series', topic_name='Sequences &amp; Series'))
         db.session.add(Topic(topic_id='maclaurin_series', topic_name='Maclaurin Series'))
         db.session.add(Topic(topic_id='matrices', topic_name='Matrices'))
         db.session.add(Topic(topic_id='vectors', topic_name='Vectors'))
-        db.session.add(Topic(topic_id='methods_of_proof', topic_name='Methods of Proof'))
-        db.session.add(Topic(topic_id='number_theory', topic_name='Number Theory'))
+        db.session.add(Topic(topic_id='methods_of_proof', topic_name='Methods of Proof')) #
+        db.session.add(Topic(topic_id='number_theory', topic_name='Number Theory')) #
 
         db.session.add(Subtopic(subtopic_id='new_functions', subtopic_name='New Functions and their Derivatives', topic_id='differentiation'))
         db.session.add(Subtopic(subtopic_id='chain_rule', subtopic_name='Chain Rule', topic_id='differentiation'))
@@ -37,7 +37,7 @@ def setup_db(db, app):
         db.session.add(Subtopic(subtopic_id='related_rates', subtopic_name='Related Rates of Change', topic_id='differentiation'))
 
         db.session.add(Subtopic(subtopic_id='euclidean_algorithm', subtopic_name='Euclidean Algorithm', topic_id='number_theory'))
-        db.session.add(Subtopic(subtopic_id='number_theory', subtopic_name='Number Bases', topic_id='number_theory'))
+        db.session.add(Subtopic(subtopic_id='number_bases', subtopic_name='Number Bases', topic_id='number_theory'))
 
         db.session.add(Subtopic(subtopic_id='distinct_linear_factors', subtopic_name='Partial Fractions with Distinct Linear Factors', topic_id='partial_fractions'))
         db.session.add(Subtopic(subtopic_id='repeated_linear_factor', subtopic_name='Partial Fractions with a Repeated Linear Factors', topic_id='partial_fractions'))
@@ -83,6 +83,7 @@ def setup_db(db, app):
         db.session.add(Paper(paper_name='Specimen Paper (2016)', paper_id='Specimen(2016)'))
         db.session.add(Paper(paper_name='2017 Paper', paper_id='2017'))
         db.session.add(Paper(paper_name='2018 Paper', paper_id='2018'))
+        db.session.add(Paper(paper_name='2019 Paper', paper_id='2019'))
 
 
         db.session.add(Question(marks=10, question_id='2007Q16', question_number='16', video='eOUZqLLSx6g?start=0', paper='2007', topics='functions_graphs'))
@@ -179,7 +180,7 @@ def setup_db(db, app):
         db.session.add(Question(marks=10, question_id='2012Q13', question_number='13', video='s-WyHrtqQX0?start=0', paper='2012', topics='differentiation,functions_graphs', subtopics='parametric,second_derivative'))
         db.session.add(Question(marks=5, question_id='2012Q12', question_number='12', video='PVH_1-Ye_SA?start=0', paper='2012', topics='differentiation', subtopics='related_rates'))
         db.session.add(Question(marks=5, question_id='2012Q11', question_number='11', video='2veikl1yAPM?start=0', paper='2012', topics='integration', subtopics='parts'))
-        db.session.add(Question(marks=3, question_id='2012Q10', question_number='10', video='cX-mdzT3ylI?start=0', paper='2012', topics='number_theory', subtopics='number_bases'))
+        db.session.add(Question(marks=3, question_id='2012Q10', question_number='10', video='cX-mdzT3ylI?start=0', paper='2012', topics='number_theory', subtopics='number_bases,euclidean_algorithm'))
         db.session.add(Question(marks=4, question_id='2012Q9', question_number='9', video='CbYoYNxgWsA?start=0', paper='2012', topics='matrices'))
         db.session.add(Question(marks=6, question_id='2012Q8', question_number='8', video='_zo1JTiG4tA?start=0', paper='2012', topics='integration', subtopics='substitution'))
         db.session.add(Question(marks=4, question_id='2012Q7', question_number='7', video='vat834ndQtw?start=0', paper='2012', topics='functions_graphs'))
@@ -202,7 +203,7 @@ def setup_db(db, app):
         db.session.add(Question(marks=5, question_id='2013Q8', question_number='8', video='mrJLEImGoUM?start=0', paper='2013', topics='integration', subtopics='parts'))
         db.session.add(Question(marks=4, question_id='2013Q7', question_number='7', video='EU4JL7bZTvg?start=0', paper='2013', topics='complex_numbers'))
         db.session.add(Question(marks=4, question_id='2013Q6', question_number='6', video='vSph3QmgauM?start=0', paper='2013', topics='integration', subtopics='substitution'))
-        db.session.add(Question(marks=4, question_id='2013Q5', question_number='5', video='XSYFEm-hKUU?start=0', paper='2013', topics='number_theory', subtopics='number_bases'))
+        db.session.add(Question(marks=4, question_id='2013Q5', question_number='5', video='XSYFEm-hKUU?start=0', paper='2013', topics='number_theory', subtopics='euclidean_algorithm'))
         db.session.add(Question(marks=5, question_id='2013Q4', question_number='4', video='qrOfEzizL0k?start=0', paper='2013', topics='integration'))
         db.session.add(Question(marks=5, question_id='2013Q3', question_number='3', video='enYKB52-qos?start=0', paper='2013', topics='matrices'))
         db.session.add(Question(marks=3, question_id='2013Q2', question_number='2', video='Q6OWBXZbDUM?start=0', paper='2013', topics='differentiation', subtopics='chain_rule,product_rule'))
@@ -302,6 +303,27 @@ def setup_db(db, app):
         db.session.add(Question(marks=4, question_id='2018Q1c', question_number='1c', video='ghqOOum12s0?start=168', paper='2018', topics='differentiation', subtopics='implicit,chain_rule,product_rule'))
         db.session.add(Question(marks=2, question_id='2018Q1b', question_number='1b', video='ghqOOum12s0?start=65', paper='2018', topics='differentiation', subtopics='chain_rule,quotient_rule'))
         db.session.add(Question(marks=2, question_id='2018Q1a', question_number='1a', video='ghqOOum12s0?start=0', paper='2018', topics='differentiation', subtopics='chain_rule'))
+
+        db.session.add(Question(marks=10, question_id='2019Q18', question_number='18', video='pSY2F72ajFw?start=0', paper='2019', topics='complex_numbers'))
+        db.session.add(Question(marks=10, question_id='2019Q17', question_number='17', video='uaeBWpLsVrg?start=0', paper='2019', topics='sequences_series'))
+        db.session.add(Question(marks=8, question_id='2019Q16', question_number='16', video='QJU6EKlCwWw?start=0', paper='2019', topics='integration', subtopics='parts,volumes_of_revolution'))
+        db.session.add(Question(marks=9, question_id='2019Q15', question_number='15', video='K7eIFGNRwpE?start=0', paper='2019', topics='vectors'))
+        db.session.add(Question(marks=5, question_id='2019Q14', question_number='14', video='TPf-e3390po?start=0', paper='2019', topics='methods_of_proof', subtopics='induction'))
+        db.session.add(Question(marks=5, question_id='2019Q13', question_number='13', video='7qO-7PCaz5w?start=0', paper='2019', topics='differential_equations'))
+        db.session.add(Question(marks=3, question_id='2019Q12', question_number='12', video='dNazvIOPiUA?start=0', paper='2019', topics='number_theory', subtopics='number_bases,euclidean_algorithm'))
+        db.session.add(Question(marks=5, question_id='2019Q11', question_number='11', video='0GDca77OuJs?start=0', paper='2019', topics='methods_of_proof', subtopics='counter_example,contrapositive'))
+        db.session.add(Question(marks=5, question_id='2019Q10', question_number='10', video='wr7X5YHIDFw?start=0', paper='2019', topics='differentiation', subtopics='implicit,chain_rule'))
+        db.session.add(Question(marks=5, question_id='2019Q9', question_number='9', video='Avasghf2TcM?start=0', paper='2019', topics='binomial_theorem', subtopics='general_term'))
+        db.session.add(Question(marks=5, question_id='2019Q8', question_number='8', video='QizQ2YdlIP4?start=0', paper='2019', topics='differential_equations'))
+        db.session.add(Question(marks=3, question_id='2019Q7', question_number='7', video='9Ij2GpMo9dI?start=0', paper='2019', topics='sequences_series'))
+        db.session.add(Question(marks=3, question_id='2019Q6', question_number='6', video='_c92QdBS1sU?start=0', paper='2019', topics='differentiation', subtopics='related_rates'))
+        db.session.add(Question(marks=4, question_id='2019Q5', question_number='5', video='Ey16SO6AjXE?start=0', paper='2019', topics='differentiation', subtopics='parametric,second_derivative'))
+        db.session.add(Question(marks=4, question_id='2019Q4', question_number='4', video='dThtzIfdDsc?start=0', paper='2019', topics='partial_fractions', subtopics='improper_rational_fraction,distinct_linear_factors'))
+        db.session.add(Question(marks=2, question_id='2019Q3', question_number='3', video='HD7MX6QiYGc?start=0', paper='2019', topics='functions_graphs'))
+        db.session.add(Question(marks=6, question_id='2019Q2', question_number='2', video='LIy0Aj6BPI0?start=0', paper='2019', topics='matrices'))
+        db.session.add(Question(marks=3, question_id='2019Q1c', question_number='1c', video='YQfhwzO_2io?start=200', paper='2019', topics='differentiation', subtopics='new_functions,chain_rule'))
+        db.session.add(Question(marks=3, question_id='2019Q1b', question_number='1b', video='YQfhwzO_2io?start=101', paper='2019', topics='differentiation', subtopics='quotient_rule'))
+        db.session.add(Question(marks=2, question_id='2019Q1a', question_number='1a', video='YQfhwzO_2io?start=0', paper='2019', topics='differentiation', subtopics='product_rule,new_functions'))
 
         db.session.commit()
 
