@@ -26,6 +26,14 @@ def setup_db(db, app):
         db.session.add(Topic(topic_id='methods_of_proof', topic_name='Methods of Proof')) #
         db.session.add(Topic(topic_id='number_theory', topic_name='Number Theory')) #
 
+        db.session.add(Subtopic(subtopic_id='distinct_linear_factors', subtopic_name='Partial Fractions with Distinct Linear Factors', topic_id='partial_fractions'))
+        db.session.add(Subtopic(subtopic_id='repeated_linear_factor', subtopic_name='Partial Fractions with a Repeated Linear Factors', topic_id='partial_fractions'))
+        db.session.add(Subtopic(subtopic_id='irreducible_quadratic_factor', subtopic_name='Partial Fractions with an Irreducible Quadratic Factor', topic_id='partial_fractions'))
+        db.session.add(Subtopic(subtopic_id='improper_rational_fraction', subtopic_name='Partial Fractions of an Improper Rational Fraction', topic_id='partial_fractions'))
+
+        db.session.add(Subtopic(subtopic_id='binomial_expansion', subtopic_name='Binomial Expansions', topic_id='binomial_theorem'))
+        db.session.add(Subtopic(subtopic_id='general_term', subtopic_name='Finding and Using the General Term', topic_id='binomial_theorem'))
+
         db.session.add(Subtopic(subtopic_id='new_functions', subtopic_name='New Functions and their Derivatives', topic_id='differentiation'))
         db.session.add(Subtopic(subtopic_id='chain_rule', subtopic_name='Chain Rule', topic_id='differentiation'))
         db.session.add(Subtopic(subtopic_id='product_rule', subtopic_name='Product Rule', topic_id='differentiation'))
@@ -35,33 +43,64 @@ def setup_db(db, app):
         db.session.add(Subtopic(subtopic_id='implicit', subtopic_name='Implicit Differentiation', topic_id='differentiation'))
         db.session.add(Subtopic(subtopic_id='logarithmic', subtopic_name='Logarithmic Differentiation', topic_id='differentiation'))
         db.session.add(Subtopic(subtopic_id='related_rates', subtopic_name='Related Rates of Change', topic_id='differentiation'))
-
-        db.session.add(Subtopic(subtopic_id='euclidean_algorithm', subtopic_name='Euclidean Algorithm', topic_id='number_theory'))
-        db.session.add(Subtopic(subtopic_id='number_bases', subtopic_name='Number Bases', topic_id='number_theory'))
-
-        db.session.add(Subtopic(subtopic_id='distinct_linear_factors', subtopic_name='Partial Fractions with Distinct Linear Factors', topic_id='partial_fractions'))
-        db.session.add(Subtopic(subtopic_id='repeated_linear_factor', subtopic_name='Partial Fractions with a Repeated Linear Factors', topic_id='partial_fractions'))
-        db.session.add(Subtopic(subtopic_id='irreducible_quadratic_factor', subtopic_name='Partial Fractions with an Irreducible Quadratic Factor', topic_id='partial_fractions'))
-        db.session.add(Subtopic(subtopic_id='improper_rational_fraction', subtopic_name='Partial Fractions of an Improper Rational Fraction', topic_id='partial_fractions'))
+        db.session.add(Subtopic(subtopic_id='differentiation_displacement_speed_acceleration', subtopic_name='Displacement, Speed and Acceleration', topic_id='differentiation'))
 
         db.session.add(Subtopic(subtopic_id='standard_integrals', subtopic_name='Standard Integrals and Useful Forms', topic_id='integration'))
         db.session.add(Subtopic(subtopic_id='integration_partial_fractions', subtopic_name='Integration by Partial Fractions', topic_id='integration'))
         db.session.add(Subtopic(subtopic_id='substitution', subtopic_name='Integration by Substitution', topic_id='integration'))
         db.session.add(Subtopic(subtopic_id='parts', subtopic_name='Integration by Parts', topic_id='integration'))
         db.session.add(Subtopic(subtopic_id='volumes_of_revolution', subtopic_name='Volumes of Revolution', topic_id='integration'))
+        db.session.add(Subtopic(subtopic_id='integration_displacement_speed_acceleration', subtopic_name='Displacement, Speed and Acceleration', topic_id='integration'))
 
-        db.session.add(Subtopic(subtopic_id='binomial_expansion', subtopic_name='Binomial Expansions', topic_id='binomial_theorem'))
-        db.session.add(Subtopic(subtopic_id='general_term', subtopic_name='Finding and Using the General Term', topic_id='binomial_theorem'))
+        db.session.add(Subtopic(subtopic_id='first_order_variable_separable', subtopic_name='Variables-separable first order differential equations', topic_id='differential_equations'))
+        db.session.add(Subtopic(subtopic_id='first_order_integrating_factor', subtopic_name='Integrating factor first order differential equations', topic_id='differential_equations'))
+        db.session.add(Subtopic(subtopic_id='second_order_homogeneous', subtopic_name='Homogeneous second order differential equations', topic_id='differential_equations'))
+        db.session.add(Subtopic(subtopic_id='second_order_non_homogeneous', subtopic_name='Non-homogeneous second order differential equations', topic_id='differential_equations'))
+
+        db.session.add(Subtopic(subtopic_id='asymptotes', subtopic_name='Asymptotes', topic_id='functions_graphs'))
+        db.session.add(Subtopic(subtopic_id='points_of_inflection', subtopic_name='Points of Inflection', topic_id='functions_graphs'))
+        db.session.add(Subtopic(subtopic_id='odd_even_functions', subtopic_name='Odd and Even Functions', topic_id='functions_graphs'))
+        db.session.add(Subtopic(subtopic_id='modulus_functions', subtopic_name='Modulus Functions', topic_id='functions_graphs'))
+        db.session.add(Subtopic(subtopic_id='inverse_functions', subtopic_name='Inverse Functions', topic_id='functions_graphs'))
+        db.session.add(Subtopic(subtopic_id='translations_reflections', subtopic_name='Translations and Reflections', topic_id='functions_graphs'))
+        db.session.add(Subtopic(subtopic_id='graph_sketching', subtopic_name='Graph Sketching', topic_id='functions_graphs'))
 
         db.session.add(Subtopic(subtopic_id='gaussian_elimination', subtopic_name='Gaussian Elimination', topic_id='systems_of_equations'))
         db.session.add(Subtopic(subtopic_id='inconsistency_redundancy', subtopic_name='Inconsistency and Redundancy', topic_id='systems_of_equations'))
         db.session.add(Subtopic(subtopic_id='ill_conditioning', subtopic_name='Ill-Conditioning', topic_id='systems_of_equations'))
+
+        db.session.add(Subtopic(subtopic_id='basic_operations', subtopic_name='Basic Operations with Complex Numbers', topic_id='complex_numbers'))
+        db.session.add(Subtopic(subtopic_id='solving_polynomials_complex_roots', subtopic_name='Solving polynomials with complex roots', topic_id='complex_numbers'))
+        db.session.add(Subtopic(subtopic_id='complex_numbers_equations', subtopic_name='Solving equations with complex numbers', topic_id='complex_numbers'))
+        db.session.add(Subtopic(subtopic_id='argand_diagrams_polar_form', subtopic_name='Argand Diagrams and Polar Form', topic_id='complex_numbers'))
+        db.session.add(Subtopic(subtopic_id='de_moivres_theorem', subtopic_name='De Moivre\'s Theorem', topic_id='complex_numbers'))
+        db.session.add(Subtopic(subtopic_id='loci', subtopic_name='Loci', topic_id='complex_numbers'))
+
+        db.session.add(Subtopic(subtopic_id='arithmetic_progressions', subtopic_name='Arithmetic Progressions', topic_id='sequences_series'))
+        db.session.add(Subtopic(subtopic_id='geometric_progressions', subtopic_name='Geometric Progressions', topic_id='sequences_series'))
+        db.session.add(Subtopic(subtopic_id='summation_formulae', subtopic_name='Summation Formulae', topic_id='sequences_series'))
+
+        db.session.add(Subtopic(subtopic_id='simple_functions', subtopic_name='Maclaurin Expansions of Simple Functions', topic_id='maclaurin_series'))
+        db.session.add(Subtopic(subtopic_id='combining_expansions', subtopic_name='Combining Maclaurin Expansions', topic_id='maclaurin_series'))
+
+        db.session.add(Subtopic(subtopic_id='matrix_algebra_identities', subtopic_name='Matrix Algebra and Identities', topic_id='matrices'))
+        db.session.add(Subtopic(subtopic_id='determinant', subtopic_name='Determinant of a Matrix', topic_id='matrices'))
+        db.session.add(Subtopic(subtopic_id='inverse_matrices', subtopic_name='Inverse Matrices', topic_id='matrices'))
+        db.session.add(Subtopic(subtopic_id='transformation_matrices', subtopic_name='Transformation Matrices', topic_id='matrices'))
+
+        db.session.add(Subtopic(subtopic_id='vector_product', subtopic_name='Vector (Cross) Product', topic_id='vectors'))
+        db.session.add(Subtopic(subtopic_id='scalar_triple_product', subtopic_name='Scalar Triple Product', topic_id='vectors'))
+        db.session.add(Subtopic(subtopic_id='3d_lines', subtopic_name='Lines in three dimensions', topic_id='vectors'))
+        db.session.add(Subtopic(subtopic_id='3d_planes', subtopic_name='Planes in three dimensions', topic_id='vectors'))
 
         db.session.add(Subtopic(subtopic_id='direct', subtopic_name='Direct Proof', topic_id='methods_of_proof'))
         db.session.add(Subtopic(subtopic_id='contrapositive', subtopic_name='Proof by Contrapositive', topic_id='methods_of_proof'))
         db.session.add(Subtopic(subtopic_id='contradiction', subtopic_name='Proof by Contradiction', topic_id='methods_of_proof'))
         db.session.add(Subtopic(subtopic_id='induction', subtopic_name='Proof by Induction', topic_id='methods_of_proof'))
         db.session.add(Subtopic(subtopic_id='counter_example', subtopic_name='Disproving by Counter-Example', topic_id='methods_of_proof'))
+
+        db.session.add(Subtopic(subtopic_id='euclidean_algorithm', subtopic_name='Euclidean Algorithm', topic_id='number_theory'))
+        db.session.add(Subtopic(subtopic_id='number_bases', subtopic_name='Number Bases', topic_id='number_theory'))
 
         db.session.add(Paper(paper_name='Specimen Paper (2000)', paper_id='Specimen(2000)'))
         db.session.add(Paper(paper_name='2002 Paper', paper_id='2002'))
