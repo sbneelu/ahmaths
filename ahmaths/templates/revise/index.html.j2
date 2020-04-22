@@ -1,9 +1,12 @@
 {% extends 'layout.html.j2' %}
 {% block content %}
-  <div class="text-center">
-    <h1>Revise</h1>
-    <p>Find SQA past and specimen papers and their marking instructions below.</p>
-    <br>
+  <div class="row mb-2">
+    <div class="col-xs-2"><a href="{{ url_for('main.index') }}" class="btn btn-primary btn-lg">&larr; Back</a></div>
+    <div class="col-xs-8 text-center">
+      <h1>Revise</h1>
+      <p>Find SQA past and specimen papers and their marking instructions below.</p>
+    </div>
+    <div class="col-xs-2"></div>
   </div>
   <div class="row paper-selection text-center">
     <a style="width: 97%;" class="btn btn-outline-info" href="{{ url_for('static', filename='formulae-list.pdf') }}" target="_blank">Formulae List</a>
