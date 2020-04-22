@@ -178,7 +178,7 @@
         <h3>Course Notes</h3>
         <small>See the pages below for topic explanations and examples.</small>
         <br>
-        <ul class="text-left">
+        <ul class="text-left mt-2">
           {% for topic in topics %}
             <li>
               <a href="{{ url_for('learn.topic', topic_id=topic.topic_id) }}" target="_blank">{{ topic.topic_name }}</a>
