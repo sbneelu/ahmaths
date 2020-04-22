@@ -17,6 +17,6 @@
     {% else %}
       <p>Are you sure you would like to delete all your progress for <b>{{ topic_name }}</b>? This action cannot be undone.</p>
     {% endif %}
-    <a href="{{ url_for('users.delete_progress', topic_id=topic_id) }}" class="btn btn-outline-danger">Yes, delete my progress</a> <a href="{{ url_for('users.account') }}" class="btn btn-outline-info">No, go back</a>
+    <a href="{{ url_for('users.delete_progress', topic_id=topic_id) }}" class="btn btn-danger">Yes, delete my progress</a> <a href="{{ url_for('users.account') }}" class="btn btn-primary">No, go back</a>
   </div>
 {% endblock content %}

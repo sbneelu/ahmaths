@@ -20,7 +20,7 @@
       </ul>
     {% endif %}
     <div class="text-center">
-      <a class="btn btn-outline-info" href="{{ url_for('practise.topic', topic_id=topic.topic_id) }}">Practise {{ topic.topic_name }}</a>
+      <a class="btn btn-primary" href="{{ url_for('practise.topic', topic_id=topic.topic_id) }}">Practise {{ topic.topic_name }}</a>
     </div>
   </div>
 {% endblock content %}

@@ -1,6 +1,6 @@
 {% extends 'layout.html.j2' %}
 {% block content %}
-  <a style="width: 100%;" class="btn btn-outline-info mb-2" href="{{ url_for('static', filename='formulae-list.pdf') }}" target="_blank">Formulae List</a>
+  <a style="width: 100%;" class="btn btn-primary mb-2" href="{{ url_for('static', filename='formulae-list.pdf') }}" target="_blank">Formulae List</a>
   <div style="margin: auto;" class="row p-2 visible-md visible-lg thumbnail paper-selection-element">
     <div class="col-md-4 p-2">
       <div class="p-2">
@@ -12,7 +12,7 @@
           <li>Linked practice questions</li>
         </ul>
         <div class="text-center">
-          <a class="btn btn-outline-info" href="{{ url_for('learn.main') }}">Open Learn</a>
+          <a class="btn btn-primary" href="{{ url_for('learn.main') }}">Open Learn</a>
         </div>
       </div>
     </div>
@@ -25,7 +25,7 @@
           <li>Progress tracking for each question and by topic</li>
         </ul>
         <div class="text-center">
-          <a class="btn btn-outline-info" href="{{ url_for('practise.main') }}">Open Practise</a>
+          <a class="btn btn-primary" href="{{ url_for('practise.main') }}">Open Practise</a>
         </div>
       </div>
     </div>
@@ -36,7 +36,7 @@
           <li>SQA specimen and past papers with marking instructions</li>
         </ul>
         <div class="text-center">
-          <a class="btn btn-outline-info" href="{{ url_for('revise.main') }}">Open Revise</a>
+          <a class="btn btn-primary" href="{{ url_for('revise.main') }}">Open Revise</a>
         </div>
       </div>
     </div>
@@ -59,7 +59,7 @@
           <li>Linked practice questions</li>
         </ul>
         <div class="text-center">
-          <a class="btn btn-outline-info" href="{{ url_for('learn.main') }}">Open Learn</a>
+          <a class="btn btn-primary" href="{{ url_for('learn.main') }}">Open Learn</a>
         </div>
       </div>
       <div id="practise-sm" class="tab-pane fade in active">
@@ -70,7 +70,7 @@
           <li>Progress tracking for each question and by topic</li>
         </ul>
         <div class="text-center">
-          <a class="btn btn-outline-info" href="{{ url_for('practise.main') }}">Open Practise</a>
+          <a class="btn btn-primary" href="{{ url_for('practise.main') }}">Open Practise</a>
         </div>
       </div>
       <div id="revise-sm" class="tab-pane fade">
@@ -79,7 +79,7 @@
           <li>SQA specimen and past papers with marking instructions</li>
         </ul>
         <div class="text-center">
-          <a class="btn btn-outline-info" href="{{ url_for('revise.main') }}">Open Revise</a>
+          <a class="btn btn-primary" href="{{ url_for('revise.main') }}">Open Revise</a>
         </div>
       </div>
     </div>

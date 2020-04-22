@@ -30,7 +30,7 @@
           {% else %}
             {{ form.email(class="form-control form-control-lg") }}
           {% endif %}
-          {{ form.submit(class="btn btn-outline-info mt-1") }}
+          {{ form.submit(class="btn btn-primary mt-1") }}
         </div>
       </fieldset>
 
@@ -38,14 +38,14 @@
 
     <div>
       <h3>Password</h3>
-      <a href="{{ url_for('users.update_password') }}" class="btn btn-outline-info">Change Password</a>
+      <a href="{{ url_for('users.update_password') }}" class="btn btn-primary">Change Password</a>
     </div>
     <br>
     <div>
       <h3>Delete Progress (Practise)</h3>
-      <a href="{{ url_for('users.confirm_delete_progress', topic_id='all') }}" class="btn btn-outline-danger mt-1">Delete <b>All</b> Progress</a><br>
+      <a href="{{ url_for('users.confirm_delete_progress', topic_id='all') }}" class="btn btn-danger mt-1">Delete <b>All</b> Progress</a><br>
       {% for topic in topics %}
-        <a href="{{ url_for('users.confirm_delete_progress', topic_id=topic.topic_id) }}" class="btn btn-outline-info mt-1">Delete Progress in <b>{{ topic.topic_name }}</b></a><br>
+        <a href="{{ url_for('users.confirm_delete_progress', topic_id=topic.topic_id) }}" class="btn btn-primary mt-1">Delete Progress in <b>{{ topic.topic_name }}</b></a><br>
       {% endfor %}
     </div>
   </div>
