@@ -86,7 +86,7 @@ def setup_db(db, app):
         db.session.add(Subtopic(subtopic_id='transformation_matrices', subtopic_name='Transformation Matrices', topic_id='matrices'))
 
         db.session.add(Subtopic(subtopic_id='vector_product', subtopic_name='Vector (Cross) Product', topic_id='vectors'))
-        db.session.add(Subtopic(subtopic_id='scalar_product', subtopic_name='Scalar Product', topic_id='vectors'))
+        db.session.add(Subtopic(subtopic_id='scalar_product', subtopic_name='Scalar (Dot) Product', topic_id='vectors'))
         db.session.add(Subtopic(subtopic_id='scalar_triple_product', subtopic_name='Scalar Triple Product', topic_id='vectors'))
         db.session.add(Subtopic(subtopic_id='3d_lines', subtopic_name='Lines in three dimensions', topic_id='vectors'))
         db.session.add(Subtopic(subtopic_id='3d_planes', subtopic_name='Planes in three dimensions', topic_id='vectors'))
