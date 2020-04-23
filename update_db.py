@@ -4,10 +4,19 @@ from ahmaths.models import Topic, Subtopic, Question, Paper, User
 app = create_app()
 
 
-def setup_db(db, app):
+def update_db(db, app):
 
     with app.app_context():
-        db.create_all()
+        topics = Topic.query.all()
+        subtopics = Subtopic.query.all()
+        questions = Question.query.all()
+        for topic in topics:
+            db.session.delete(topic)
+        for subtopic in subtopics:
+            db.session.delete(subtopic)
+        for question in questions:
+            db.session.delete(question)
+        db.session.commit()
 
         db.session.add(Topic(topic_id='partial_fractions', topic_name='Partial Fractions'))
         db.session.add(Topic(topic_id='binomial_theorem', topic_name='Binomial Theorem'))
@@ -364,4 +373,4 @@ def setup_db(db, app):
         db.session.commit()
 
 
-setup_db(db, app)
+update_db(db, app)
