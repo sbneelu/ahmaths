@@ -38,9 +38,9 @@ def update_db(db, app):
         db.session.add(Subtopic(subtopic_id='irreducible_quadratic_factor', subtopic_name='Partial Fractions with an Irreducible Quadratic Factor', topic_id='partial_fractions'))
         db.session.add(Subtopic(subtopic_id='improper_rational_fraction', subtopic_name='Partial Fractions of an Improper Rational Fraction', topic_id='partial_fractions'))
 
+        db.session.add(Subtopic(subtopic_id='binomial_coefficient', subtopic_name='Using the Binomial Coefficient', topic_id='binomial_theorem'))
         db.session.add(Subtopic(subtopic_id='binomial_expansion', subtopic_name='Binomial Expansions', topic_id='binomial_theorem'))
         db.session.add(Subtopic(subtopic_id='general_term', subtopic_name='Finding and Using the General Term', topic_id='binomial_theorem'))
-        db.session.add(Subtopic(subtopic_id='binomial_coefficient', subtopic_name='Using the Binomial Coefficient', topic_id='binomial_theorem'))
 
         db.session.add(Subtopic(subtopic_id='new_functions', subtopic_name='New Functions and their Derivatives', topic_id='differentiation'))
         db.session.add(Subtopic(subtopic_id='chain_rule', subtopic_name='Chain Rule', topic_id='differentiation'))
@@ -94,8 +94,8 @@ def update_db(db, app):
         db.session.add(Subtopic(subtopic_id='inverse_matrices', subtopic_name='Inverse Matrices', topic_id='matrices'))
         db.session.add(Subtopic(subtopic_id='transformation_matrices', subtopic_name='Transformation Matrices', topic_id='matrices'))
 
-        db.session.add(Subtopic(subtopic_id='vector_product', subtopic_name='Vector (Cross) Product', topic_id='vectors'))
         db.session.add(Subtopic(subtopic_id='scalar_product', subtopic_name='Scalar (Dot) Product', topic_id='vectors'))
+        db.session.add(Subtopic(subtopic_id='vector_product', subtopic_name='Vector (Cross) Product', topic_id='vectors'))
         db.session.add(Subtopic(subtopic_id='scalar_triple_product', subtopic_name='Scalar Triple Product', topic_id='vectors'))
         db.session.add(Subtopic(subtopic_id='3d_lines', subtopic_name='Lines in three dimensions', topic_id='vectors'))
         db.session.add(Subtopic(subtopic_id='3d_planes', subtopic_name='Planes in three dimensions', topic_id='vectors'))
