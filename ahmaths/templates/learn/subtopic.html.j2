@@ -29,5 +29,5 @@
   </div>
 {% endblock content %}
 {% block scripts %}
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+  <script id="MathJax-script" async src="{{ url_for('static', filename='scripts/mathjax/tex-mml-chtml.js') }}"></script>
 {% endblock scripts %}

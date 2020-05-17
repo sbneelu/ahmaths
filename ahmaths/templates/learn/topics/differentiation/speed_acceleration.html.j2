@@ -5,24 +5,8 @@
   <p>Similarly, if the position of an object along the vertical axis is given by \(y\), the velocity would be given by \(\frac{dy}{dt}\).</p>
   <h3>Velocity and Speed</h3>
   <p>Velocity is a vector quantity, meaning it has both magnitude and direction, while speed is a scalar quantity, meaning it has only magnitude. Given that the velocity of an object along the horizontal axis is \(\frac{dx}{dt}\) and the velocity along the vertical axis is \(\frac{dy}{dt}\), the following triangle of its motion can be constructed. This is a diagram of the instantaneous velocities of the object, i.e. frozen at a point in its motion. The hypotenuse of the triangle is the resultant velocity vector, i.e. the combination of both components of the velocity.</p>
-  <div class="math tikz-container" style="padding: 12px;">
-    <script type="text/tikz">
-      \begin{tikzpicture}[scale=5]
-
-        \coordinate (A) at (0, 0) {};
-        \coordinate (B) at (1, 0) {};
-        \coordinate (C) at (1, 1) {};
-
-        \draw[line width=2pt,blue,-stealth] (0,0)--(1,0);
-        \draw[line width=2pt,red,-stealth] (1,0)--(1,1);
-        \draw[line width=2pt,violet,-stealth] (0,0)--(1,1);
-        \node[color=blue] (a) at (0.5,-0.1) {\LARGE $dx/dt$};
-        \node[color=red] (a) at (1.2,0.5) {\LARGE $dy/dt$};
-        \node[color=violet,rotate=45] (a) at (0.4,0.6) {\LARGE resultant};
-
-        \draw[line width=2pt] (0.9,0) -- (0.9,0.1) -- (1,0.1);
-      \end{tikzpicture}
-    </script>
+  <div class="math img">
+    <img src="{{ url_for('static', filename='images/learn/differentiation/speed_acceleration/vector-diagram.png') }}" alt="Vector Diagram">
   </div>
   <br>
 
@@ -80,6 +64,29 @@
       v &amp;=&amp; \int{adt}\\
     \end{eqnarray}
   $$</p>
+  <br>
+
+  <p>An example problem is as follows:</p>
+  The speed \(v\) (in metres per second) of a particle at time \(t\) (in seconds) is given by \(v = 3t^2 - 4t\).
+  Find the acceleration \(a\) and displacement \(s\) of the particle at time \(t = 4\) seconds.
+  <p class="math">$$
+    \begin{eqnarray}
+    a &amp;=&amp; \frac{dv}{dt}\\
+    &amp;=&amp; \frac{d}{dt}(3t^2 - 4t)\\
+    &amp;=&amp; 6t - 4\\
+    \\
+    \text{At } t = 4 \text{ seconds},\\
+    a &amp;=&amp; 6(4) - 4 = \underline{\underline{20 \text{ ms}^{-2}}}
+    \\
+    \\
+    s &amp;=&amp; \int{vdt}\\
+    &amp;=&amp; \int_{0}^{4} {(3t^2 - 4t) dt}\\
+    &amp;=&amp; [t^3 - 2t^2]_0^4\\
+    &amp;=&amp; (4^3 - 2(4)^2) - 0\\
+    &amp;=&amp; \underline{\underline{32 \text{m}}}
+    \end{eqnarray}
+  $$</p>
+
 
 
 
@@ -91,8 +98,10 @@
   <link rel="stylesheet" type="text/css" href="http://tikzjax.com/v1/fonts.css">
   <script src="http://tikzjax.com/v1/tikzjax.js"></script>
   <style>
-    .tikz-container * {
+    .math.img img {
+      display: block;
       margin: auto;
+      max-width: 80%;
     }
   </style>
 {% endblock styles %}
