@@ -56,7 +56,6 @@
         <div class="form-group">
           {{ form.beta_token.label(class="form-control-label") }}
           <br>
-          <small>AHmaths.com is in beta at the moment. If you do not have a beta access token please use <a href="https://sbneelu.io/ahmaths/">https://sbneelu.io/ahmaths/</a> in the mean time. This site will likely be open to the public from the start of March 2020 so please check back then.</small>
           {% if form.beta_token.errors %}
             {{ form.beta_token(class="form-control form-control-lg is-invalid") }}
             <div class="invalid-feedback">
