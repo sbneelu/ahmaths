@@ -11,12 +11,7 @@ class SignupForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired(), Length(min=8, message='Password must be at least 8 characters long.')])
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password', message='Password and Confirm Password must be identical. Note that passwords are case-sensitive.')])
-    beta_token = StringField('Beta Access Token', validators=[DataRequired()])
     submit = SubmitField('Sign Up')
-
-    def validate_beta_token(self, beta_token):
-        if self.beta_token.data.strip() != 'Fb3tMg':
-            raise ValidationError('Invalid beta access token.')
 
     def validate_email(self, email):
         user = User.query.filter_by(email=email.data).first()

@@ -53,20 +53,6 @@
             {{ form.confirm_password(class="form-control form-control-lg") }}
           {% endif %}
         </div>
-        <div class="form-group">
-          {{ form.beta_token.label(class="form-control-label") }}
-          <br>
-          {% if form.beta_token.errors %}
-            {{ form.beta_token(class="form-control form-control-lg is-invalid") }}
-            <div class="invalid-feedback">
-              {% for error in form.beta_token.errors %}
-                <span>{{ error }}</span>
-              {% endfor %}
-            </div>
-          {% else %}
-            {{ form.beta_token(class="form-control form-control-lg") }}
-          {% endif %}
-        </div>
         <div class="g-recaptcha" data-sitekey="{{ captcha_sitekey }}"></div>
         {% if captcha_error %}
           <div class="invalid-feedback">
