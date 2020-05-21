@@ -10,7 +10,11 @@
     <div class="col-xs-2"></div>
   </div>
   <div class="content-section">
+    {% if topic.topic_id not in ['differentiation', 'integration'] or subtopic.subtopic_id == 'parts' or subtopic.subtopic_id == 'volumes_of_revolution' %}
+      <div class="alert alert-warning">This page is incomplete. Only Differentiation and Integration Learn pages are available as of now (with the exception of Volumes of Revolution, and Integration by Parts which is only partially complete). The others will be added over the coming months.</div>
+    {% endif %}
     {% block explanation %}{% endblock explanation %}
+
     <br>
     {% if questions %}
       <h3>Practice Questions</h3>
