@@ -1,4 +1,20 @@
 {% extends 'learn/topic.html.j2' %}
 {% block explanation %}
-  
+
+  <p>Partial fractions are algebraic fractions that are made up using factors of the denominator of a more complex algebraic fraction. For example, \(\dfrac{2x+5}{x^2+5x+6}\) in partial fractions is \(\dfrac{1}{x+2} + \dfrac{1}{x+3}\). Partial fractions are useful in various fields of maths, including <a href="{{ url_for('learn.subtopic', topic_id='integration', subtopic_id='integration_partial_fractions') }}">Integration by Partial Fractions</a> and <a href="{{ url_for('learn.subtopic', topic_id='sequences_series', subtopic_id='summation_formulae') }}">Summation Formulae</a>.</p>
+
+  <h3>Types of denominator</h3>
+  <p>Types of partial fractions can be split up based on their denominator.</p>
+  <ul>
+    <li>The first type is a denominator which has distinct linear factors. This would be something like \(\dfrac{...}{(x+1)(x+2)}\).</li>
+    <li>The second type is a denominator which has a repeated linear factor. This would be something like \(\dfrac{...}{(x+1)(x+2)^2}\).</li>
+    <li>The third type is a denominator which has an irreducible quadratic factor. This would be something like \(\dfrac{...}{(x^2+x+16))}\).</li>
+  </ul>
+
+  <h3>Proper and Improper Fractions</h3>
+  <p>In a proper algebraic fraction, the degree of the numerator is less than the degree of the denominator. The degree of a polynomial refers to its highest power. For example, the polynomial \(x^2-4x+3\) has a degree of 2, and the polynomial \(4x^5-3x+2\) has a degree of 5.</p>
+  <p>Conversely, in an improper algebraic fraction, the degree of the numerator is greater than or equal to the degree of the denominator.</p>
+  <p>For example, the fraction \(\dfrac{2x+3}{x^2-4x+3}\) is a proper fraction, while \(\dfrac{x^2-4x+2}{x^2+2x-3}\) is an improper fraction.</p>
+  <p>Improper algebraic fractions must be divided through to make them proper before partial fractions can be found for them.</p>
+
 {% endblock explanation %}

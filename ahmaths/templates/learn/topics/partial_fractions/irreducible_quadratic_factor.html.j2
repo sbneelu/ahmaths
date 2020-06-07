@@ -1,4 +1,39 @@
 {% extends 'learn/subtopic.html.j2' %}
 {% block explanation %}
+<p>Partial fractions can be found for an algebraic fraction whose denominator has an irreducible quadratic factor by first equating the fraction to partial fractions with variables as their numerators, and then solving to obtain a set of simultaneous equations, which can be solved to find the numerators.</p>
+<br>
+<p>For example, find partial fractions for \(\dfrac{7x+5}{(x-3)(x^2+4)}\).</p>
+<p class="math">$$
+  \begin{eqnarray}
+  x^4 + 4 \text{ can not be factorised, and is hence an irreducible quadratic.}\\
+  \text{The numerator of the partial fraction whose denominator is an irreducible quadratic is a polynomial whose degree is one lower than the denominator.}\\
+  \text{The degree of a quadratic is 2, so the numerator is a first degree polynomial, } Bx + C \text{.}\\
+  \frac{7x+5}{(x-3)(x^2+4)} = \frac{A}{x-3} + \frac{Bx + C}{x^2 + 4} \\
+  \\
+  \text{This is then multiplied through by the denominator as usual.}\\
+  \frac{5x-8}{(x-1)(x-2)^2} \times (x-1)(x-2)^2 = (\frac{A}{x-1} + \frac{B}{x-2} + \frac{C}{(x-2)^2}) \times (x-1)(x-2)^2\\
+  5x - 8 = A(x-2)^2 + B(x-1)(x-2) + C(x-1)\\
+  5x - 8 = A(x^2-4x-4) + B(x^2-3x+2) + C(x-1)\\
+  5x - 8 = (A + B)x^2 + (-4A-3B+C)x + (4A + 2B - C)\\
+  \\
+  \therefore
+  \begin{cases}
+  A + B = 0\\
+  -4A-3B+C = 5\\
+  4A + 2B - C = -8
+  \end{cases}
+
+  \\
+  \text{These equations can be solved simultaneously to obtain }
+  \begin{cases}
+  A = -3\\
+  B = 3\\
+  C = 2\\
+  \end{cases}
+  \\
+  \\
+  \therefore \frac{5x-8}{(x-1)(x-2)^2} = \underline{\underline{-\frac{3}{x-1} + \frac{3}{x-2} + \frac{2}{(x-2)^2}}}
+  \end{eqnarray}
+$$</p>
 
 {% endblock explanation %}
