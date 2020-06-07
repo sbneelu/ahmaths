@@ -27,16 +27,14 @@ def create_app(config_class=Config):
 
     from ahmaths.users.routes import users
     from ahmaths.main.routes import main
-    from ahmaths.learn.routes import learn
-    from ahmaths.practise.routes import practise
-    from ahmaths.revise.routes import revise
+    from ahmaths.questions.routes import questions
+    from ahmaths.papers.routes import papers
     from ahmaths.errors.handlers import errors
 
     app.register_blueprint(users)
     app.register_blueprint(main)
-    app.register_blueprint(learn)
-    app.register_blueprint(practise)
-    app.register_blueprint(revise)
+    app.register_blueprint(questions)
+    app.register_blueprint(papers)
     app.register_blueprint(errors)
 
     return app

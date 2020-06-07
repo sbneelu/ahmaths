@@ -1,0 +1,39 @@
+{% extends 'layout.html.j2' %}
+{% block content %}
+  <div class="row mb-2">
+    <div class="col-xs-2"><a href="{{ url_for('questions.main') }}" class="btn btn-primary btn-lg">&larr; Back</a></div>
+    <div class="col-xs-8 text-center">
+      <h1>Questions by Topic - {{ topic.topic_name }}</h1>
+      <p>Select a question below.</p>
+    </div>
+    <div class="col-xs-2"></div>
+  </div>
+  <div class="row selection text-center">
+    {% for question in questions %}
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <a class="thumbnail selection-element" href="{{ url_for('questions.question', question_id=question.question_id) }}">
+          {% if question.paper %}
+            <h2>SQA {{ question.paper }} Question {{ question.question_number }}</h2>
+          {% else %}
+            <h2>{{ topic.topic_name }} Question {{ question.question_number }}</h2>
+          {% endif %}
+
+          {% if question.question_id in progress %}
+            {% set mark = progress[question.question_id]|int %}
+            {% set max_mark = question.marks %}
+            {% if mark/max_mark < 0.5 %}
+              {% set color_class = 'danger' %}
+            {% elif mark/max_mark < 1 %}
+              {% set color_class = 'warning' %}
+            {% elif mark/max_mark == 1 %}
+              {% set color_class = 'green' %}
+            {% endif %}
+            <p class="question-progress text-{{ color_class }}">{{ mark }} out of {{ max_mark }} marks</p>
+          {% else %}
+            <p class="question-progress">Unattempted - {{ question.marks }} marks</p>
+          {% endif %}
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock content %}

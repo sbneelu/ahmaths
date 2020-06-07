@@ -42,7 +42,7 @@
     </div>
     <br>
     <div>
-      <h3>Delete Progress (Practise)</h3>
+      <h3>Delete Progress (Questions by Topic)</h3>
       <a href="{{ url_for('users.confirm_delete_progress', topic_id='all') }}" class="btn btn-danger mt-1">Delete <b>All</b> Progress</a><br>
       {% for topic in topics %}
         <a href="{{ url_for('users.confirm_delete_progress', topic_id=topic.topic_id) }}" class="btn btn-primary mt-1">Delete Progress in <b>{{ topic.topic_name }}</b></a><br>

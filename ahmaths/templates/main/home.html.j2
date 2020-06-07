@@ -2,85 +2,59 @@
 {% block content %}
   <a style="width: 100%;" class="btn btn-primary mb-2" href="{{ url_for('static', filename='docs/formulae-list.pdf') }}" target="_blank">Formulae List</a>
   <div style="margin: auto;" class="row p-2 visible-md visible-lg thumbnail paper-selection-element">
-    <div class="col-md-4 p-2">
+    <div class="col-md-6 p-2" style="border-right: 1px solid #2B7EB8;">
       <div class="p-2">
-        <h2 class="text-center">Learn</h2>
-        <ul class="text-left">
-          <li>Course notes and content explanations</li>
-          <li>Worked examples</li>
-          <li>Divided into topics and subtopics</li>
-          <li>Linked practice questions</li>
-        </ul>
-        <div class="text-center">
-          <a class="btn btn-primary" href="{{ url_for('learn.main') }}">Open Learn</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 p-2" style="border-left: 1px solid #2B7EB8; border-right: 1px solid #2B7EB8;">
-      <div class="p-2">
-        <h2 class="text-center">Practise</h2>
+        <h2 class="text-center">Questions by Topic</h2>
         <ul class="text-left">
           <li>Past paper questions divided into topics</li>
-          <li>Marking instructions, DLBMaths solution video and linked course notes easily accessible from question</li>
+          <li>Marking instructions and DLBMaths solution video for each question</li>
           <li>Progress tracking for each question and by topic</li>
         </ul>
         <div class="text-center">
-          <a class="btn btn-primary" href="{{ url_for('practise.main') }}">Open Practise</a>
+          <a class="btn btn-primary" href="{{ url_for('questions.main') }}">Open Questions by Topic</a>
         </div>
       </div>
     </div>
-    <div class="col-md-4 p-2">
+    <div class="col-md-6 p-2">
       <div class="p-2">
-        <h2 class="text-center">Revise</h2>
+        <h2 class="text-center">Full Past Papers</h2>
         <ul class="text-left">
           <li>SQA specimen and past papers with marking instructions</li>
         </ul>
         <div class="text-center">
-          <a class="btn btn-primary" href="{{ url_for('revise.main') }}">Open Revise</a>
+          <a class="btn btn-primary" href="{{ url_for('papers.main') }}">Open Full Past Papers</a>
         </div>
       </div>
     </div>
   </div>
   <br>
   <br>
-  <div class="visible-xs visible-sm thumbnail paper-selection-element p-2">
-    <ul class="nav nav-tabs">
-      <li role="presentation"><a data-toggle="tab" href="#learn-sm">Learn</a></li>
-      <li role="presentation" class="active"><a data-toggle="tab" href="#practise-sm">Practise</a></li>
-      <li role="presentation"><a data-toggle="tab" href="#revise-sm">Revise</a></li>
-    </ul>
-    <div class="tab-content">
-      <div id="learn-sm" class="tab-pane fade">
-        <h2 class="text-center">Learn</h2>
-        <ul class="text-left">
-          <li>Course notes and content explanations</li>
-          <li>Worked examples</li>
-          <li>Divided into topics and subtopics</li>
-          <li>Linked practice questions</li>
-        </ul>
-        <div class="text-center">
-          <a class="btn btn-primary" href="{{ url_for('learn.main') }}">Open Learn</a>
+  <div class="visible-xs visible-sm p-2">
+    <div class="row">
+      <div class="col-sm-12 thumbnail paper-selection-element">
+        <div class="p-2">
+          <h2 class="text-center">Questions by Topic</h2>
+          <ul class="text-left">
+            <li>Past paper questions divided into topics</li>
+            <li>Marking instructions and DLBMaths solution video for each question</li>
+            <li>Progress tracking for each question and by topic</li>
+          </ul>
+          <div class="text-center">
+            <a class="btn btn-primary" href="{{ url_for('questions.main') }}">Open Questions by Topic</a>
+          </div>
         </div>
       </div>
-      <div id="practise-sm" class="tab-pane fade in active">
-        <h2 class="text-center">Practise</h2>
-        <ul class="text-left">
-          <li>Past paper questions divided into topics</li>
-          <li>Marking instructions, DLBMaths solution video and linked course notes easily accessible from question</li>
-          <li>Progress tracking for each question and by topic</li>
-        </ul>
-        <div class="text-center">
-          <a class="btn btn-primary" href="{{ url_for('practise.main') }}">Open Practise</a>
+      <div class="col-md-6 col-sm-12 thumbnail paper-selection-element">
+        <div class="p-2">
+          <h2 class="text-center">Full Past Papers</h2>
+          <ul class="text-left">
+            <li>SQA specimen and past papers with marking instructions</li>
+          </ul>
+          <div class="text-center">
+            <a class="btn btn-primary" href="{{ url_for('papers.main') }}">Open Full Past Papers</a>
+          </div>
         </div>
-      </div>
-      <div id="revise-sm" class="tab-pane fade">
-        <h2 class="text-center">Revise</h2>
-        <ul class="text-left">
-          <li>SQA specimen and past papers with marking instructions</li>
-        </ul>
-        <div class="text-center">
-          <a class="btn btn-primary" href="{{ url_for('revise.main') }}">Open Revise</a>
-        </div>
+
       </div>
     </div>
 

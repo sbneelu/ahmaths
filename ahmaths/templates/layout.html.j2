@@ -42,9 +42,8 @@
       <div class="collapse navbar-collapse" id="navbar">
         <ul class="nav navbar-nav">
           <li><a class="nav-item nav-link" href="{{ url_for('main.home') }}">Home</a></li>
-          <li><a class="nav-item nav-link" href="{{ url_for('learn.main') }}">Learn</a></li>
-          <li><a class="nav-item nav-link" href="{{ url_for('practise.main') }}">Practise</a></li>
-          <li><a class="nav-item nav-link" href="{{ url_for('revise.main') }}">Revise</a></li>
+          <li><a class="nav-item nav-link" href="{{ url_for('questions.main') }}">Questions by Topic</a></li>
+          <li><a class="nav-item nav-link" href="{{ url_for('papers.main') }}">Full Past Papers</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a class="nav-item nav-link" href="{{ url_for('static', filename='docs/formulae-list.pdf') }}" target="_blank">Formulae List</a></li>
@@ -61,9 +60,6 @@
     </div>
   </nav>
   <div class="container">
-    <div class="alert alert-warning">
-      <b>This site is currently in beta.</b> If you encounter any issues or have any feedback or feature requests please report them on the <a class="alert-link" href="{{ url_for('main.contact') }}" target="_blank">Contact/Report a Problem</a> page. The Learn section is incomplete for now but the rest of the site is functional.
-    </div>
     {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
         {% for category, message in messages %}

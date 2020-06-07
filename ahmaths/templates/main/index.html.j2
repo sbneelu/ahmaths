@@ -3,17 +3,14 @@
   <div class="jumbotron">
     <h1>Welcome to AHmaths.com!</h1>
     <div>
-        <p>This website is designed to aid revision for SQA Advanced Higher Pure Mathematics by collating sources into one simple site and is divided into 3 sections:</p>
-        <h3>Learn</h3>
-        <p><a href="{{ url_for('learn.main') }}">Learn</a> has course notes and content explanations for every topic and subtopic in the AH maths pure course, as well as worked examples and proofs for various identities that are introduced in the course.</p>
-        <h3>Practise</h3>
-        <p><a href="{{ url_for('practise.main') }}">Practise</a> contains past paper questions divided into topics. For each question, it has the SQA marking instructions as well as a DLBMaths video covering the question if available. It also has links to the relevant topics and subtopics for the question in <a href="">Learn</a>. The formulae list can easily be accessed at the top of every question.</p>
-        <p>It also tracks progress and shows you how many marks you got in a question in your last attempt, and shows you what percentage of all the marks in a topic you have achieved so far on the topic selection page.</p>
-        <p>Login is required to use Practise as your progress is synced with your account. This allows your progress to be synced across devices so you can use this site on multiple devices and consistently track progress across all of them.</p>
-        <h3>Revise</h3>
-        <p><a href="{{ url_for('revise.main') }}">Revise</a> contains full SQA past papers and marking instructions and should be used in the lead up to the final exam. The formulae list can easily be accessed from the top of Revise.</p>
-        <p>In addition to Learn and Revise, the formulae list can easily be accessed from the navbar of any page.</p>
-        <p>This site should work on any modern browser and most older browsers too. However if it doesn't work on your browser then please consider upgrading to a modern browser or use the old site with limited features at <a href="https://old.ahmaths.com">https://old.ahmaths.com</a>.</p>
+      <p>This website is designed to aid revision for SQA Advanced Higher Pure Mathematics by collating sources into one simple site and is divided into 2 sections:</p>
+      <h3>Questions by Topic</h3>
+      <p>The <a href="{{ url_for('questions.main') }}">Questions by Topic</a> section contains past paper questions divided into topics. For each question, it has the SQA marking instructions as well as a DLBMaths video covering the question if available. It also had a list of topics and subtopics for each question. The formulae list can easily be accessed at the top of every question.</p>
+      <p>It also tracks progress and shows you how many marks you got in a question in your last attempt, and shows you what percentage of all the marks in a topic you have achieved so far on the topic selection page.</p>
+      <p>Login is required to use the Questions by Topic section as your progress is synced with your account. This allows your progress to be synced across devices so you can use this site on multiple devices and consistently track progress across all of them.</p>
+      <h3>Full Past Papers</h3>
+      <p>The <a href="{{ url_for('papers.main') }}">Full Past Papers</a> section contains full SQA past papers and marking instructions and should be used in the lead up to the final exam. The formulae list can easily be accessed from the top of the page.</p>
+      <p>This site should work on any modern browser and most older browsers too. However if it doesn't work on your browser then please consider upgrading to a modern browser or use the old site with limited features at <a href="https://old.ahmaths.com">https://old.ahmaths.com</a>. You can also use the old site if you do not wish to create an account, as no account is required to use the old site. However, this means that your progress will not sync across multiple devices.</p>
     </div>
     <p><a class="btn btn-primary btn-lg mr-2" href="{{ url_for('users.signup') }}" role="button">Sign up</a><a class="btn btn-primary btn-lg ml-2" href="{{ url_for('users.login') }}" role="button">Login</a></p>
   </div>

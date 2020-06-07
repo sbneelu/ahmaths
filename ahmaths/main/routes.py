@@ -40,7 +40,7 @@ def contact():
             captcha_error = 'Invalid Captcha. Please try again.'
             return render_template('main/contact.html.j2', title="Contact/Report a Problem", form=form, captcha_error=captcha_error, captcha_sitekey=Config.RECAPTCHA_SITEKEY)
         send_contact_email(form.name.data, form.email.data, form.subject.data, form.message.data)
-        flash('Your message has been sent. If you do not hear back within 24 hours then please send an email to <a href="mailto:neelu.rsa@gmail.com">neelu.rsa@gmail.com</a>.', 'info')
+        flash('Your message has been sent.', 'info')
         return redirect(url_for('main.home'))
     return render_template('main/contact.html.j2', title="Contact/Report a Problem", form=form, captcha_error=captcha_error, captcha_sitekey=Config.RECAPTCHA_SITEKEY)
 

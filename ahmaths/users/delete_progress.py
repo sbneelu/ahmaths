@@ -1,7 +1,7 @@
 from flask_login import current_user
 from ahmaths import db
 from ahmaths.models import Question
-from ahmaths.practise.save_results import save_marks_to_progress
+from ahmaths.questions.save_results import save_marks_to_progress
 
 
 def delete_topic_progress(topic_id):
