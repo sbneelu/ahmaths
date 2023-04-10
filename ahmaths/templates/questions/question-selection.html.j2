@@ -13,9 +13,9 @@
       <div class="col-sm-12 col-md-6 col-lg-4">
         <a class="thumbnail selection-element" href="{{ url_for('questions.question', question_id=question.question_id) }}">
           {% if question.paper %}
-            <h2>SQA {{ question.paper }} Question {{ question.question_number }}</h2>
+            <h2>SQA {{ question.paper }} <br> Question {{ question.question_number }}</h2>
           {% else %}
-            <h2>{{ topic.topic_name }} Question {{ question.question_number }}</h2>
+            <h2>{{ topic.topic_name }} <br> Question {{ question.question_number }}</h2>
           {% endif %}
 
           {% if question.question_id in progress %}
