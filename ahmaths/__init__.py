@@ -16,7 +16,13 @@ mail = Mail()
 
 def create_app(config_class=Config):
     app = Flask(__name__)
-    app.config.from_object(Config)
+    app.config.from_object(config_class)
+
+    # Validate critical configuration
+    if not app.config.get('SECRET_KEY'):
+        raise ValueError("SECRET_KEY must be set in environment variables or config.json")
+    if not app.config.get('SQLALCHEMY_DATABASE_URI'):
+        raise ValueError("SQLALCHEMY_DATABASE_URI (or DATABASE_URL) must be set in environment variables or config.json")
 
     app.url_map.strict_slashes = False
 

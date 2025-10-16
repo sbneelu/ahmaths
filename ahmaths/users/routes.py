@@ -30,7 +30,10 @@ def signup():
         if not success:
             captcha_error = 'Invalid Captcha. Please try again.'
             return render_template('users/signup.html.j2', form=form, title='Sign Up', captcha_error=captcha_error, captcha_sitekey=Config.RECAPTCHA_SITEKEY)
-        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        hashed_password = bcrypt.generate_password_hash(form.password.data)
+        # Handle both bytes and str return types for compatibility
+        if isinstance(hashed_password, bytes):
+            hashed_password = hashed_password.decode('utf-8')
         user = User(email=form.email.data, password=hashed_password)
         db.session.add(user)
         db.session.commit()
@@ -92,13 +95,16 @@ def request_reset_password():
 def reset_password(token):
     if current_user.is_authenticated:
         return redirect(url_for('main.home'))
-    user = User.verify_reset_token(token)
+    user = User.verify_reset_token(token, max_age=86400)
     if user is None:
         flash('Invalid or expired password reset link. Please request another password reset link.', 'warning')
         return redirect(url_for('users.request_reset_password'))
     form = ResetPasswordForm()
     if form.validate_on_submit():
-        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        hashed_password = bcrypt.generate_password_hash(form.password.data)
+        # Handle both bytes and str return types for compatibility
+        if isinstance(hashed_password, bytes):
+            hashed_password = hashed_password.decode('utf-8')
         user.password = hashed_password
         db.session.commit()
         flash('Your password has been reset. You may now use your new password to log in to your account.', 'info')
@@ -124,7 +130,10 @@ def account():
 def update_password():
     form = UpdatePasswordForm()
     if form.validate_on_submit():
-        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        hashed_password = bcrypt.generate_password_hash(form.password.data)
+        # Handle both bytes and str return types for compatibility
+        if isinstance(hashed_password, bytes):
+            hashed_password = hashed_password.decode('utf-8')
         current_user.password = hashed_password
         db.session.commit()
         flash('Your password has been updated.', 'info')

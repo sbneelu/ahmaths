@@ -1,7 +1,6 @@
 from flask import current_app
 from flask_login import UserMixin
-from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
-from itsdangerous import BadSignature
+from itsdangerous import URLSafeTimedSerializer, SignatureExpired, BadSignature
 from ahmaths import db, login_manager
 
 
@@ -31,15 +30,18 @@ class User(db.Model, UserMixin):
     number_theory = db.Column(db.Text, nullable=False, default='')
 
     def get_reset_token(self, expires_seconds=1800):
-        s = Serializer(current_app.config['SECRET_KEY'], expires_seconds)
-        return s.dumps({'user_id': self.id}).decode('utf-8')
+        """Generate a password reset token that expires after expires_seconds."""
+        s = URLSafeTimedSerializer(current_app.config['SECRET_KEY'])
+        return s.dumps({'user_id': self.id}, salt='password-reset')
 
     @staticmethod
-    def verify_reset_token(token):
-        s = Serializer(current_app.config['SECRET_KEY'])
+    def verify_reset_token(token, max_age=1800):
+        """Verify a password reset token. Returns User object or None if invalid/expired."""
+        s = URLSafeTimedSerializer(current_app.config['SECRET_KEY'])
         try:
-            user_id = s.loads(token)['user_id']
-        except BadSignature:
+            data = s.loads(token, salt='password-reset', max_age=max_age)
+            user_id = data['user_id']
+        except (SignatureExpired, BadSignature):
             return None
         return User.query.get(user_id)
 
