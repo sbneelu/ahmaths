@@ -25,9 +25,9 @@ def test_signup_page(client):
     assert b'Sign' in response.data or b'sign' in response.data
 
 
-def test_logout_redirect(client):
-    """Test logout redirects to index."""
-    response = client.get('/logout', follow_redirects=False)
+def test_logout_redirect(auth_client):
+    """Test logout (POST) logs the user out and redirects to index."""
+    response = auth_client.post('/logout', follow_redirects=False)
     assert response.status_code == 302
 
 
