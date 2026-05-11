@@ -17,7 +17,7 @@
     {% else %}
       <p>Are you sure you would like to delete all your progress for <b>{{ topic_name }}</b>? This action cannot be undone.</p>
     {% endif %}
-    <form action="{{ url_for('users.delete_progress', topic_id=topic_id) }}" method="post" style="display:inline">
+    <form action="{{ url_for('users.delete_progress', topic_id=topic_id) }}" method="post" style="display:inline;margin-right:8px">
       <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
       <button type="submit" class="btn btn-danger">Yes, delete my progress</button>
     </form>

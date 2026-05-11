@@ -1,5 +1,6 @@
 $bgDefault      : #2B7EB8;
 $bgHighlight    : #39A8F6;
+$bgActive       : #0E5687;   // ~5.7:1 contrast with white text
 $colDefault     : white;
 $colHighlight   : #88C3ED;
 $dropDown       : true;
@@ -35,11 +36,11 @@ $dropDown       : true;
       .open .dropdown-menu > .active {
         > a, > a:hover, > a:focus {
           color: $colDefault;
-          background-color: $bgHighlight; }}}
+          background-color: $bgActive; }}}
     > .active {
       > a, > a:hover, > a:focus {
         color: $colDefault;
-        background-color: $bgHighlight; }}
+        background-color: $bgActive; }}
     > .open {
       > a, > a:hover, > a:focus {
         color: $colDefault;
@@ -56,7 +57,19 @@ $dropDown       : true;
   .navbar-link {
     color: $colDefault;
     &:hover {
-      color: $colHighlight; }}}
+      color: $colHighlight; }}
+  .navbar-logout-form {
+    margin: 0; padding: 0; display: inline; }
+  .navbar-logout-form > button {
+    background: transparent; border: none;
+    color: $colDefault;
+    padding: 15px;
+    line-height: 20px; }
+  .navbar-logout-form > button:hover,
+  .navbar-logout-form > button:focus {
+    background-color: $bgHighlight;
+    color: $colDefault;
+    text-decoration: none; }}
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu {
     > li > a {
@@ -66,5 +79,5 @@ $dropDown       : true;
     > .active {
       > a, > a:hover, > a:focus {
         color: $colHighlight;
-        background-color: $bgHighlight; }}}
+        background-color: $bgActive; }}}
 }

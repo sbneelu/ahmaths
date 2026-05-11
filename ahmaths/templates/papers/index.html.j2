@@ -16,8 +16,8 @@
       <div class="col-sm-12 col-md-6 col-lg-4">
         <div class="thumbnail paper-selection-element">
           <h2>{{ paper.paper_name }}</h2>
-          <a class="btn btn-primary m-2" target="_blank" rel="noopener noreferrer" href="{{ url_for('static', filename='sqa-papers/papers/AH-Maths-' + paper.paper_id + '.pdf') }}" aria-label="{{ paper.paper_name }} paper PDF">Paper [PDF]</a>
-          <a class="btn btn-primary m-2" target="_blank" rel="noopener noreferrer" href="{{ url_for('static', filename='sqa-papers/mi/AH-Maths-MI-' + paper.paper_id + '.pdf') }}" aria-label="{{ paper.paper_name }} marking instructions PDF">Marking Instructions [PDF]</a>
+          <a class="btn btn-primary m-2" target="_blank" rel="noopener noreferrer" href="{{ url_for('static', filename='sqa-papers/papers/AH-Maths-' + paper.paper_id + '.pdf') }}" aria-label="{{ paper.paper_name }} Paper [PDF]">Paper [PDF]</a>
+          <a class="btn btn-primary m-2" target="_blank" rel="noopener noreferrer" href="{{ url_for('static', filename='sqa-papers/mi/AH-Maths-MI-' + paper.paper_id + '.pdf') }}" aria-label="{{ paper.paper_name }} Marking Instructions [PDF]">Marking Instructions [PDF]</a>
         </div>
       </div>
     {% endfor %}

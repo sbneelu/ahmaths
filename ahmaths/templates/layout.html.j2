@@ -55,7 +55,7 @@
             <li>
               <form action="{{ url_for('users.logout') }}" method="post" class="navbar-logout-form">
                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                <button type="submit" class="nav-item nav-link btn btn-link">Logout</button>
+                <button type="submit" class="navbar-logout-button">Logout</button>
               </form>
             </li>
           {% else %}
@@ -70,7 +70,7 @@
     {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
         {% for category, message in messages %}
-          <div class="alert alert-{{ category }}" role="alert">
+          <div class="alert alert-{{ category }}" role="{% if category in ['danger', 'warning'] %}alert{% else %}status{% endif %}">
             {{ message }}
           </div>
         {% endfor %}
