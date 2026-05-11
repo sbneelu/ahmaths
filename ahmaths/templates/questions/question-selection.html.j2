@@ -1,7 +1,7 @@
 {% extends 'layout.html.j2' %}
 {% block content %}
   <div class="row mb-2">
-    <div class="col-xs-2"><a href="{{ url_for('questions.main') }}" class="btn btn-primary btn-lg">&larr; Back</a></div>
+    <div class="col-xs-2"><a href="{{ url_for('questions.main') }}" class="btn btn-primary">&larr; Back</a></div>
     <div class="col-xs-8 text-center">
       <h1>Questions by Topic - {{ topic.topic_name }}</h1>
       <p>Select a question below.</p>
@@ -11,7 +11,7 @@
   <div class="row selection text-center">
     {% for question in questions %}
       <div class="col-sm-12 col-md-6 col-lg-4">
-        <a class="thumbnail selection-element" href="{{ url_for('questions.question', question_id=question.question_id) }}">
+        <a class="thumbnail selection-element" href="{{ url_for('questions.question', question_id=question.question_id, **{'from': topic.topic_id}) }}">
           {% if question.paper %}
             <h2>SQA {{ question.paper }} <br> Question {{ question.question_number }}</h2>
           {% else %}

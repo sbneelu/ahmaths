@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  {% if config.GA_MEASUREMENT_ID %}
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ config.GA_MEASUREMENT_ID }}"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'XXXXXXXX');
+    gtag('config', '{{ config.GA_MEASUREMENT_ID }}');
   </script>
+  {% endif %}
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,7 +33,7 @@
     <div class="container-fluid">
 
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
           <span>Menu</span>
         </button>
@@ -41,19 +43,24 @@
 
       <div class="collapse navbar-collapse" id="navbar">
         <ul class="nav navbar-nav">
-          <li><a class="nav-item nav-link" href="{{ url_for('main.home') }}">Home</a></li>
-          <li><a class="nav-item nav-link" href="{{ url_for('questions.main') }}">Questions by Topic</a></li>
-          <li><a class="nav-item nav-link" href="{{ url_for('papers.main') }}">Full Past Papers</a></li>
+          <li{% if request.endpoint in ['main.home', 'main.index'] %} class="active"{% endif %}><a class="nav-item nav-link" href="{{ url_for('main.home') }}">Home</a></li>
+          <li{% if request.endpoint and request.endpoint.startswith('questions.') %} class="active"{% endif %}><a class="nav-item nav-link" href="{{ url_for('questions.main') }}">Questions by Topic</a></li>
+          <li{% if request.endpoint and request.endpoint.startswith('papers.') %} class="active"{% endif %}><a class="nav-item nav-link" href="{{ url_for('papers.main') }}">Full Past Papers</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a class="nav-item nav-link" href="{{ url_for('static', filename='docs/formulae-list.pdf') }}" target="_blank">Formulae List</a></li>
-          <li><a class="nav-item nav-link" href="{{ url_for('main.contact') }}">Contact/Report a Problem</a></li>
+          <li><a class="nav-item nav-link" href="{{ url_for('static', filename='docs/formulae-list.pdf') }}" target="_blank" rel="noopener noreferrer">Formulae List</a></li>
+          <li{% if request.endpoint == 'main.contact' %} class="active"{% endif %}><a class="nav-item nav-link" href="{{ url_for('main.contact') }}">Contact/Report a Problem</a></li>
           {% if current_user.is_authenticated %}
-            <li><a class="nav-item nav-link" href="{{ url_for('users.account') }}">Account</a></li>
-            <li><a class="nav-item nav-link" href="{{ url_for('users.logout') }}">Logout</a></li>
+            <li{% if request.endpoint and request.endpoint.startswith('users.') %} class="active"{% endif %}><a class="nav-item nav-link" href="{{ url_for('users.account') }}">Account</a></li>
+            <li>
+              <form action="{{ url_for('users.logout') }}" method="post" class="navbar-logout-form">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <button type="submit" class="nav-item nav-link btn btn-link">Logout</button>
+              </form>
+            </li>
           {% else %}
-            <li><a class="nav-item nav-link" href="{{ url_for('users.login') }}">Login</a></li>
-            <li><a class="nav-item nav-link" href="{{ url_for('users.signup') }}">Sign up</a></li>
+            <li{% if request.endpoint == 'users.login' %} class="active"{% endif %}><a class="nav-item nav-link" href="{{ url_for('users.login') }}">Login</a></li>
+            <li{% if request.endpoint == 'users.signup' %} class="active"{% endif %}><a class="nav-item nav-link" href="{{ url_for('users.signup') }}">Sign up</a></li>
           {% endif %}
         </ul>
       </div>
@@ -63,7 +70,7 @@
     {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
         {% for category, message in messages %}
-          <div class="alert alert-{{ category }}">
+          <div class="alert alert-{{ category }}" role="alert">
             {{ message }}
           </div>
         {% endfor %}
@@ -76,10 +83,8 @@
 
   {% block lightbox %}{% endblock lightbox %}
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="{{ url_for('static', filename='scripts/jquery.min.js') }}"></script>
   <script src="{{ url_for('static', filename='scripts/bootstrap.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
   {% block scripts %}{% endblock scripts %}
 </body>
 </html>

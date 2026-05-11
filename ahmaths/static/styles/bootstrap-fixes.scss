@@ -17,7 +17,7 @@ a.thumbnail:hover {
   border: 1px solid $mainColor;
   background-color: $mainColor;
   color: white;
-  cursor: hand;
+  cursor: pointer;
 }
 
 .btn-outline-danger {
@@ -30,7 +30,7 @@ a.thumbnail:hover {
   border: 1px solid $danger;
   background-color: $danger;
   color: white;
-  cursor: hand;
+  cursor: pointer;
 }
 
 .is-invalid {
