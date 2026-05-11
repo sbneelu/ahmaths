@@ -1,3 +1,6 @@
+# NOTE: setup_db.py is the authoritative source of question classifications.
+# This file is a snapshot used at classification time; if you regenerate
+# setup_db from this file, double-check against setup_db.py first.
 QUESTIONS_2024 = """\
 _ensure(Question, {'question_id': '2024Paper1Q1'}, marks=4, question_id='2024Paper1Q1', question_number='1', video='', paper='2024 Paper 1', topics='differentiation', subtopics='chain_rule,product_rule,new_functions')
 _ensure(Question, {'question_id': '2024Paper1Q2'}, marks=4, question_id='2024Paper1Q2', question_number='2', video='', paper='2024 Paper 1', topics='complex_numbers', subtopics='argand_diagrams_polar_form,de_moivres_theorem')

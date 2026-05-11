@@ -1,10 +1,13 @@
+# NOTE: setup_db.py is the authoritative source of question classifications.
+# This file is a snapshot used at classification time; if you regenerate
+# setup_db from this file, double-check against setup_db.py first.
 QUESTIONS_2025 = """\
 _ensure(Question, {'question_id': '2025Paper1Q1'}, marks=4, question_id='2025Paper1Q1', question_number='1', video='', paper='2025 Paper 1', topics='binomial_theorem', subtopics='binomial_expansion')
 _ensure(Question, {'question_id': '2025Paper1Q2'}, marks=3, question_id='2025Paper1Q2', question_number='2', video='', paper='2025 Paper 1', topics='differentiation', subtopics='quotient_rule')
 _ensure(Question, {'question_id': '2025Paper1Q3'}, marks=2, question_id='2025Paper1Q3', question_number='3', video='', paper='2025 Paper 1', topics='complex_numbers', subtopics='basic_operations')
 _ensure(Question, {'question_id': '2025Paper1Q4'}, marks=6, question_id='2025Paper1Q4', question_number='4', video='', paper='2025 Paper 1', topics='matrices', subtopics='matrix_algebra_identities,determinant')
 _ensure(Question, {'question_id': '2025Paper1Q5'}, marks=2, question_id='2025Paper1Q5', question_number='5', video='', paper='2025 Paper 1', topics='integration', subtopics='standard_integrals')
-_ensure(Question, {'question_id': '2025Paper1Q6'}, marks=4, question_id='2025Paper1Q6', question_number='6', video='', paper='2025 Paper 1', topics='functions_graphs', subtopics='asymptotes')
+_ensure(Question, {'question_id': '2025Paper1Q6'}, marks=4, question_id='2025Paper1Q6', question_number='6', video='', paper='2025 Paper 1', topics='functions_graphs,partial_fractions', subtopics='asymptotes,improper_rational_fraction')
 _ensure(Question, {'question_id': '2025Paper1Q7'}, marks=5, question_id='2025Paper1Q7', question_number='7', video='', paper='2025 Paper 1', topics='differential_equations', subtopics='first_order_variables_separable')
 _ensure(Question, {'question_id': '2025Paper1Q8a'}, marks=4, question_id='2025Paper1Q8a', question_number='8a', video='', paper='2025 Paper 1', topics='systems_of_equations', subtopics='gaussian_elimination')
 _ensure(Question, {'question_id': '2025Paper1Q8b'}, marks=3, question_id='2025Paper1Q8b', question_number='8b', video='', paper='2025 Paper 1', topics='vectors', subtopics='3d_lines,3d_planes')

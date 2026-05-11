@@ -15,13 +15,14 @@ repos:
     rev: 24.10.0
     hooks:
       - id: black
-        language_version: python3.10
+        exclude: ^(setup_db\.py|update_db\.py|scripts/_questions_.*\.py)$
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.8.4
     hooks:
       - id: ruff
         args: [--fix, --exit-non-zero-on-fix]
+        exclude: ^(setup_db\.py|update_db\.py|scripts/_questions_.*\.py)$
 
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.13.0
@@ -30,3 +31,4 @@ repos:
         additional_dependencies:
           - types-requests
         args: [--ignore-missing-imports, --no-strict-optional]
+        exclude: ^(setup_db\.py|update_db\.py|scripts/_questions_.*\.py)$
