@@ -30,11 +30,6 @@ class RequestResetPasswordForm(FlaskForm):
     email = StringField('Email address', validators=[DataRequired(), Email()])
     submit = SubmitField('Request Password Reset')
 
-    def validate_email(self, email):
-        user = User.query.filter_by(email=email.data).first()
-        if user is None:
-            raise ValidationError(f'There is no account with that email address. If you do not have an account then please <a href="' + url_for('users.signup') + '">sign up</a>.')
-
 
 class ResetPasswordForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired(), Length(min=8, message='Password must be at least 8 characters long.')])

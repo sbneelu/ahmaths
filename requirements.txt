@@ -1,6 +1,5 @@
 # Production dependencies
-# Updated for security and compatibility while maintaining backwards compatibility
-# Python 3.10+ required
+# Python 3.9+ required (Flask 3.x, WTForms 3.2, Werkzeug 3.x)
 
 # Core Flask
 Flask==3.0.3
@@ -15,10 +14,11 @@ Flask-WTF==1.2.2
 
 # Database
 SQLAlchemy==2.0.36
-pg8000==1.31.2
+PyMySQL==1.1.1
 
 # Forms & Validation
 WTForms==3.2.1
+email_validator==2.2.0
 
 # Security & Crypto
 bcrypt==4.2.1
@@ -36,9 +36,6 @@ MarkupSafe==3.0.2
 # Utilities
 Click==8.1.8
 blinker==1.9.0
-
-# PostgreSQL dependencies
-scramp==1.4.5
 
 # WSGI server for development (use Passenger/cPanel in production)
 # Uncomment if needed locally:

@@ -10,19 +10,11 @@ class MarkForm(FlaskForm):
     submit = SubmitField('Submit')
 
     def validate_mark(self, mark):
-        question = self.question
-        mark = str(mark.data)
-        max_mark = int(Question.query.filter_by(question_id=question.data).first().marks)
-        
-        if len(mark) == 0 or mark.isspace() or mark == None:
-            raise ValidationError('Mark must be between 0 and ' + str(max_mark) + '.')
-        
-        else:
-        
-            mark = int(mark)
-            
-            if not mark:
-                mark = 0
-            
-            if mark > max_mark or mark < 0:
-                raise ValidationError('Mark must be between 0 and ' + str(max_mark) + '.')
+        q = Question.query.filter_by(question_id=self.question.data).first()
+        if q is None:
+            raise ValidationError('Invalid question. Please reload the page and try again.')
+        max_mark = int(q.marks)
+        if mark.data is None:
+            raise ValidationError(f'Mark must be between 0 and {max_mark}.')
+        if not 0 <= mark.data <= max_mark:
+            raise ValidationError(f'Mark must be between 0 and {max_mark}.')

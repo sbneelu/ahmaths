@@ -16,6 +16,11 @@ def delete_topic_progress(topic_id):
 
     for question_id in questions:
         question = Question.query.filter_by(question_id=question_id).first()
+        if question is None:
+            # Question no longer exists in the DB; nothing to clean up
+            # in the other-topic columns. The current topic column is
+            # wiped wholesale below.
+            continue
         topics = question.topics.split(',')
         if len(topics) > 1:
             for topic in topics:

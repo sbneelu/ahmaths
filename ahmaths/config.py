@@ -39,3 +39,20 @@ class Config:
     # reCAPTCHA
     RECAPTCHA_SECRET = os.getenv('RECAPTCHA_SECRET', config.get('RECAPTCHA_SECRET'))
     RECAPTCHA_SITEKEY = os.getenv('RECAPTCHA_SITEKEY', config.get('RECAPTCHA_SITEKEY'))
+
+    # Contact form recipient (defaults to EMAIL_ADDRESS / MAIL_USERNAME)
+    CONTACT_RECIPIENT = os.getenv('CONTACT_RECIPIENT', config.get('CONTACT_RECIPIENT'))
+
+    # Analytics
+    GA_MEASUREMENT_ID = os.getenv('GA_MEASUREMENT_ID', config.get('GA_MEASUREMENT_ID'))
+
+    # Session / cookie security
+    SESSION_COOKIE_HTTPONLY = True
+    SESSION_COOKIE_SAMESITE = 'Lax'
+    SESSION_COOKIE_SECURE = os.getenv(
+        'SESSION_COOKIE_SECURE',
+        str(config.get('SESSION_COOKIE_SECURE', True)),
+    ).lower() in ('true', '1', 'yes')
+    REMEMBER_COOKIE_HTTPONLY = True
+    REMEMBER_COOKIE_SAMESITE = 'Lax'
+    REMEMBER_COOKIE_SECURE = SESSION_COOKIE_SECURE
