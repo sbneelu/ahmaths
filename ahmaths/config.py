@@ -49,6 +49,8 @@ class Config:
     # Session / cookie security
     SESSION_COOKIE_HTTPONLY = True
     SESSION_COOKIE_SAMESITE = 'Lax'
+    # Set SESSION_COOKIE_SECURE=false in env for local HTTP development;
+    # production must keep this True (HTTPS-only cookies).
     SESSION_COOKIE_SECURE = os.getenv(
         'SESSION_COOKIE_SECURE',
         str(config.get('SESSION_COOKIE_SECURE', True)),

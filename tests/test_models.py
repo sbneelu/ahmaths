@@ -67,7 +67,7 @@ def test_user_reset_token_expired(app):
         db.session.commit()
 
         # Generate token
-        token = user.get_reset_token(expires_seconds=3600)
+        token = user.get_reset_token()
 
         # Wait a moment and verify with very short max_age
         import time

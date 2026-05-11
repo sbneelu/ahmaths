@@ -12,7 +12,7 @@ RECAPTCHA_VERIFY_URL = 'https://www.google.com/recaptcha/api/siteverify'
 
 
 def send_reset_password_email(user):
-    token = user.get_reset_token(expires_seconds=86400)
+    token = user.get_reset_token()
     sender_name = current_app.config.get('EMAIL_NAME', 'AHmaths')
     sender_address = current_app.config.get(
         'EMAIL_ADDRESS', current_app.config.get('MAIL_USERNAME')

@@ -1,4 +1,4 @@
-from flask import render_template, url_for, redirect, flash, request, Blueprint, abort, current_app
+from flask import render_template, url_for, redirect, flash, request, Blueprint, current_app
 from flask_login import login_user, logout_user, current_user, login_required
 from urllib.parse import urlparse
 from ahmaths import bcrypt, db
@@ -24,6 +24,8 @@ DEFAULT_PROGRESS = (
 def _is_safe_redirect_target(target):
     """Allow only relative redirects to prevent open-redirect attacks."""
     if not target:
+        return False
+    if any(c in target for c in '\\\r\n\t'):
         return False
     parsed = urlparse(target)
     return not parsed.scheme and not parsed.netloc and target.startswith('/')

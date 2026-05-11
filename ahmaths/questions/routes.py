@@ -59,7 +59,9 @@ def question(question_id):
     active_topic = Topic.query.filter_by(topic_id=active_topic_id).first() if active_topic_id else None
 
     if form.validate_on_submit():
-        for topic_id in q.topics.split(','):
+        for topic_id in topic_ids:
+            if not topic_id:
+                continue
             save_marks_to_topic(topic_id, question_id, form.mark.data)
             save_marks_to_progress(topic_id)
         flash('Your marks have been recorded.', 'info')

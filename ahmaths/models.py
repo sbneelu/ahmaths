@@ -29,19 +29,21 @@ class User(db.Model, UserMixin):
     methods_of_proof = db.Column(db.Text, nullable=False, default='')
     number_theory = db.Column(db.Text, nullable=False, default='')
 
-    def get_reset_token(self, expires_seconds=1800):
-        """Generate a password reset token that expires after expires_seconds."""
+    def get_reset_token(self):
+        """Generate a password reset token. Expiry is enforced at verify time."""
         s = URLSafeTimedSerializer(current_app.config['SECRET_KEY'])
         return s.dumps({'user_id': self.id}, salt='password-reset')
 
     @staticmethod
     def verify_reset_token(token, max_age=1800):
         """Verify a password reset token. Returns User object or None if invalid/expired."""
+        if not token:
+            return None
         s = URLSafeTimedSerializer(current_app.config['SECRET_KEY'])
         try:
             data = s.loads(token, salt='password-reset', max_age=max_age)
             user_id = data['user_id']
-        except (SignatureExpired, BadSignature):
+        except (SignatureExpired, BadSignature, TypeError):
             return None
         return db.session.get(User, user_id)
 
