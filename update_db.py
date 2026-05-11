@@ -1,3 +1,15 @@
+# =============================================================================
+# USE WITH CAUTION - DESTROYS DATA.
+#
+# This script DELETES every Topic, Subtopic and Question row in the database
+# before re-seeding from the hard-coded inserts below. It runs update_db()
+# automatically on import / execution (see the bottom of this file).
+#
+# Prefer `setup_db.py`, which is idempotent (only adds rows that don't yet
+# exist) and is safe to run against production. Do not run this file unless
+# you genuinely need to wipe and re-seed the seed tables and you understand
+# the consequences.
+# =============================================================================
 from ahmaths import create_app, db
 from ahmaths.models import Topic, Subtopic, Question, Paper, User
 
